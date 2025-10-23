@@ -1,0 +1,81 @@
+import random, csv
+
+import csv
+
+def read_instance(filename="instance.csv"):
+    """
+    Lit un fichier CSV généré par generate_instance.py
+    et retourne deux dictionnaires :
+    - prefs_students : {etudiant: [ecoles...]}
+    - prefs_schools  : {ecole: [etudiants...]}
+    """
+    prefs_students = {}
+    prefs_schools = {}
+
+    with open(filename, "r", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        next(reader)  # sauter l'en-tête
+
+        for row in reader:
+            if not row or len(row) < 3:
+                continue  # ignorer lignes vides
+            entity_type, name, preferences = row
+            prefs_list = [p.strip() for p in preferences.split("→")]
+
+            if entity_type == "Etudiant":
+                prefs_students[name] = prefs_list
+            elif entity_type == "Ecole":
+                prefs_schools[name] = prefs_list
+
+    return prefs_students, prefs_schools
+
+
+def mariage_stable(pref_student, pref_school):
+    
+    free_students = proposers[:] #all students are free at the start
+    proposals = {p: [] for p in proposers} #track proposals made
+    engaged = {s: None for s in receivers} #track current engagements
+
+    while free_students:
+        current_student = free_students[0]
+        student_pref = proposers[current_student]
+
+
+        for school in student_pref:
+            if school not in proposals[current_student]:
+                continue
+            else:
+                pass
+        
+        current_eng = engaged[school]
+
+        if current_eng is None:
+            engaged[school = current_student] #si l'école n'a pas d'engagement elle le prend temporairement
+            break #l'étudiant à été temporairement affecté donc on sort de la boucl
+        else:
+            if pref_school[school].index(current_student) < pref_school[school].index(current_eng): #sinon, on les compares dans le classement de l'école
+                engaged[school] = current_student #on affecte le nouveau si il est mieux classé que l'ancien
+                free_students.append(current_eng) #l'ancien candidat devient alors libre
+                break
+            else:
+                pass
+
+        return engaged
+
+
+if __name__ == "__main__":
+    prefs_students, prefs_schools = read_instance("instance.csv")
+
+    print("Préférences des étudiants :")
+    for s, prefs in prefs_students.items():
+        print(f"  {s}: {prefs}")
+
+    print("\nPréférences des écoles :")
+    for e, prefs in prefs_schools.items():
+        print(f"  {e}: {prefs}")
+
+    mar_stable = mariage_stable(prefs_students, prefs_schools)
+
+    print("\n résultat du mariage stable :")
+    for s, e in mar_stable.items():
+        print(f"  {e}: {prefs}")
