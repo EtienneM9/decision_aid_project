@@ -27,14 +27,14 @@ def save_to_csv(students, schools, prefs_students, prefs_schools, filename="inst
 
         # Étudiants
         for s in students:
-            writer.writerow(["Etudiant", s, " → ".join(prefs_students[s])])
+            writer.writerow(["Etudiant", s, " - ".join(prefs_students[s])])
 
-        # Séparateur vide pour lisibilité
+        # Séparateur vide
         writer.writerow([])
 
         # Écoles
         for e in schools:
-            writer.writerow(["Ecole", e, " → ".join(prefs_schools[e])])
+            writer.writerow(["Ecole", e, " - ".join(prefs_schools[e])])
 
     print(f" Fichier '{filename}' généré avec succès !")
 
@@ -42,7 +42,7 @@ def save_to_csv(students, schools, prefs_students, prefs_schools, filename="inst
 if __name__ == "__main__":
     # Récupération des arguments depuis la ligne de commande
     if len(sys.argv) != 3:
-        print(" Utilisation : python generate_instance.py <nb_etudiants> <nb_ecoles>")
+        print(" Utilisation : python generate_preference.py <nb_etudiants> <nb_ecoles>")
         sys.exit(1)
 
     n_students = int(sys.argv[1])

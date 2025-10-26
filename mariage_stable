@@ -20,7 +20,7 @@ def read_instance(filename="instance.csv"):
             if not row or len(row) < 3:
                 continue  # ignorer lignes vides
             entity_type, name, preferences = row
-            prefs_list = [p.strip() for p in preferences.split("→")]
+            prefs_list = [p.strip() for p in preferences.split("-")]
 
             if entity_type == "Etudiant":
                 prefs_students[name] = prefs_list
@@ -31,51 +31,62 @@ def read_instance(filename="instance.csv"):
 
 
 def mariage_stable(pref_student, pref_school):
-    
-    free_students = proposers[:] #all students are free at the start
-    proposals = {p: [] for p in proposers} #track proposals made
-    engaged = {s: None for s in receivers} #track current engagements
+
+    free_students = list(pref_student.keys())#all students are free at the start
+    proposals = {p: [] for p in pref_student} #track proposals made
+    engaged = {s: None for s in pref_school} #track current engagements
+
+    print("\n free student:", free_students)
+    print("\n proposals:", proposals)
+    print("\n engaged:", engaged)
+
 
     while free_students:
         current_student = free_students[0]
-        student_pref = proposers[current_student]
+        next_school = None
 
-
-        for school in student_pref:
+        for school in pref_student[current_student]:
             if school not in proposals[current_student]:
-                continue
-            else:
-                pass
+                next_school = school
+                break
         
-        current_eng = engaged[school]
+        
+        if next_school is None:
+            # l'étudiant a proposé à toutes les écoles : on le retire
+            free_students.pop(0)
+
+        proposals[current_student].append(next_school)
+
+        current_eng = engaged[next_school]
 
         if current_eng is None:
-            engaged[school = current_student] #si l'école n'a pas d'engagement elle le prend temporairement
-            break #l'étudiant à été temporairement affecté donc on sort de la boucl
+            engaged[next_school] = current_student #si l'école n'a pas d'engagement elle le prend temporairement
+            free_students.pop(0)
         else:
-            if pref_school[school].index(current_student) < pref_school[school].index(current_eng): #sinon, on les compares dans le classement de l'école
-                engaged[school] = current_student #on affecte le nouveau si il est mieux classé que l'ancien
+            if pref_school[next_school].index(current_student) < pref_school[next_school].index(current_eng): #sinon, on les compares dans le classement de l'école
+                engaged[next_school] = current_student #on affecte le nouveau si il est mieux classé que l'ancien
+                free_students.pop(0)
                 free_students.append(current_eng) #l'ancien candidat devient alors libre
-                break
             else:
                 pass
 
-        return engaged
+    print("engaged fin:", engaged)
+    return engaged
 
 
 if __name__ == "__main__":
     prefs_students, prefs_schools = read_instance("instance.csv")
 
-    print("Préférences des étudiants :")
+    print("pref_student", prefs_students)
+    #print("Préférences des étudiants :")
     for s, prefs in prefs_students.items():
         print(f"  {s}: {prefs}")
 
-    print("\nPréférences des écoles :")
+    #print("\nPréférences des écoles :")
     for e, prefs in prefs_schools.items():
         print(f"  {e}: {prefs}")
 
+    print("\n résultat du mariage stable :")
     mar_stable = mariage_stable(prefs_students, prefs_schools)
 
-    print("\n résultat du mariage stable :")
-    for s, e in mar_stable.items():
-        print(f"  {e}: {prefs}")
+    

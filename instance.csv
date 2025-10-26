@@ -1,0 +1,10 @@
+Type,Nom,Préférences
+
+Etudiant,Etudiant1,Ecole1 - Ecole2 - Ecole3
+Etudiant,Etudiant2,Ecole1 - Ecole2 - Ecole3
+Etudiant,Etudiant3,Ecole2 - Ecole1 - Ecole3
+
+Ecole,Ecole1,Etudiant2 - Etudiant1 - Etudiant3
+Ecole,Ecole2,Etudiant3 - Etudiant1 - Etudiant2
+Ecole,Ecole3,Etudiant1 - Etudiant2 - Etudiant3
+
