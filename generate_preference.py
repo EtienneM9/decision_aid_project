@@ -2,7 +2,7 @@ import csv
 import random
 import sys
 
-from  faker import Faker # il faut faire pip install faker
+from faker import Faker # il faut faire pip install faker
 
 fake = Faker('fr_FR')
 

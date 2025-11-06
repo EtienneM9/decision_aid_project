@@ -2,7 +2,7 @@ import random, csv
 
 import csv
 
-def read_instance(filename="instance.csv"):
+def read_instance(filename="instance_vrais_noms.csv"):
     """
     Lit un fichier CSV généré par generate_instance.py
     et retourne deux dictionnaires :
@@ -130,7 +130,7 @@ def print_average_scores(avg_students, avg_schools):
 # ===================== MAIN  le meme + ajout de l'appel de la mesure=====================
 
 if __name__ == "__main__":
-    prefs_students, prefs_schools = read_instance("instance.csv")
+    prefs_students, prefs_schools = read_instance("instance_vrais_noms.csv")
 
     print("pref_student", prefs_students)
     #print("Préférences des étudiants :")

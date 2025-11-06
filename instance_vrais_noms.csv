@@ -1,10 +1,12 @@
 Type,Nom,Préférences
-Etudiant,Luc,Mines ParisTech - Sciences Po - EM Lyon
-Etudiant,David,EM Lyon - Mines ParisTech - Sciences Po
-Etudiant,Océane,EM Lyon - Sciences Po - Mines ParisTech
-Etudiant,Alix,Sciences Po - Mines ParisTech - EM Lyon
-Etudiant,Marc,EM Lyon - Sciences Po - Mines ParisTech
+Etudiant,Alexandrie,École Polytechnique - ENSAE Paris - Université de Bordeaux - Université Grenoble Alpes - Télécom Paris
+Etudiant,Paul,Télécom Paris - ENSAE Paris - École Polytechnique - Université de Bordeaux - Université Grenoble Alpes
+Etudiant,Stéphanie,ENSAE Paris - Université de Bordeaux - Télécom Paris - École Polytechnique - Université Grenoble Alpes
+Etudiant,Susanne,École Polytechnique - Université de Bordeaux - Université Grenoble Alpes - Télécom Paris - ENSAE Paris
+Etudiant,Zoé,ENSAE Paris - École Polytechnique - Université de Bordeaux - Université Grenoble Alpes - Télécom Paris
 
-Ecole,Sciences Po,Marc - Luc - David - Océane - Alix
-Ecole,EM Lyon,Luc - Marc - Alix - David - Océane
-Ecole,Mines ParisTech,David - Marc - Alix - Luc - Océane
+Ecole,École Polytechnique,Paul - Alexandrie - Stéphanie - Susanne - Zoé
+Ecole,ENSAE Paris,Alexandrie - Susanne - Stéphanie - Paul - Zoé
+Ecole,Télécom Paris,Paul - Alexandrie - Susanne - Zoé - Stéphanie
+Ecole,Université de Bordeaux,Zoé - Alexandrie - Susanne - Paul - Stéphanie
+Ecole,Université Grenoble Alpes,Stéphanie - Alexandrie - Susanne - Zoé - Paul
