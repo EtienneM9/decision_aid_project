@@ -32,7 +32,7 @@ This creates an `instance.csv` file with 3 students and 3 schools, each with ran
 Execute the matching algorithm:
 
 ```bash
-python3 mariage_stable
+python3 mariage_stable.py
 ```
 
 This reads `instance.csv` and computes a stable matching between students and schools.

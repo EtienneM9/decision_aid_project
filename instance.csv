@@ -1,10 +1,8 @@
 Type,Nom,Préférences
+Etudiant,Etudiant1,Ecole2 - Ecole1
+Etudiant,Etudiant2,Ecole2 - Ecole1
+Etudiant,Etudiant3,Ecole1 - Ecole2
+Etudiant,Etudiant4,Ecole1 - Ecole2
 
-Etudiant,Etudiant1,Ecole1 - Ecole2 - Ecole3
-Etudiant,Etudiant2,Ecole1 - Ecole2 - Ecole3
-Etudiant,Etudiant3,Ecole2 - Ecole1 - Ecole3
-
-Ecole,Ecole1,Etudiant2 - Etudiant1 - Etudiant3
-Ecole,Ecole2,Etudiant3 - Etudiant1 - Etudiant2
-Ecole,Ecole3,Etudiant1 - Etudiant2 - Etudiant3
-
+Ecole,Ecole1,Etudiant3 - Etudiant1 - Etudiant4 - Etudiant2
+Ecole,Ecole2,Etudiant2 - Etudiant3 - Etudiant4 - Etudiant1
