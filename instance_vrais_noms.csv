@@ -1,0 +1,10 @@
+Type,Nom,Préférences
+Etudiant,Luc,Mines ParisTech - Sciences Po - EM Lyon
+Etudiant,David,EM Lyon - Mines ParisTech - Sciences Po
+Etudiant,Océane,EM Lyon - Sciences Po - Mines ParisTech
+Etudiant,Alix,Sciences Po - Mines ParisTech - EM Lyon
+Etudiant,Marc,EM Lyon - Sciences Po - Mines ParisTech
+
+Ecole,Sciences Po,Marc - Luc - David - Océane - Alix
+Ecole,EM Lyon,Luc - Marc - Alix - David - Océane
+Ecole,Mines ParisTech,David - Marc - Alix - Luc - Océane

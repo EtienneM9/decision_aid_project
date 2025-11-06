@@ -2,10 +2,21 @@ import csv
 import random
 import sys
 
+from  faker import Faker # il faut faire pip install faker
+
+fake = Faker('fr_FR')
+
+SCHOOLS_FR = [
+    "École Polytechnique", "HEC Paris", "Sorbonne Université", "INSA Lyon",
+    "ESSEC Business School", "Sciences Po", "Mines ParisTech", "ENSAE Paris",
+    "Université de Montpellier", "CentraleSupélec", "Université de Bordeaux",
+    "ENS Lyon", "Télécom Paris", "Université Grenoble Alpes", "EM Lyon"
+]
+
 def generate_preferences(n_students, n_schools):
     """Génère des préférences aléatoires pour n étudiants et n écoles."""
-    students = [f"Etudiant{i+1}" for i in range(n_students)]
-    schools = [f"Ecole{j+1}" for j in range(n_schools)]
+    students = list({fake.first_name() for _ in range(n_students * 2)})[:n_students]
+    schools = random.sample(SCHOOLS_FR, n_schools)
 
     prefs_students = {
         s: random.sample(schools, len(schools)) for s in students
@@ -17,7 +28,7 @@ def generate_preferences(n_students, n_schools):
     return students, schools, prefs_students, prefs_schools
 
 
-def save_to_csv(students, schools, prefs_students, prefs_schools, filename="instance.csv"):
+def save_to_csv(students, schools, prefs_students, prefs_schools, filename="instance_vrais_noms.csv"):
     """Enregistre les préférences dans un fichier CSV."""
     with open(filename, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
