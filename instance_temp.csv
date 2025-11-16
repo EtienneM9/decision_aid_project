@@ -1,0 +1,12 @@
+Type,Nom,Préférences
+Etudiant,Laurent,Université de Bordeaux - Sorbonne Université - INSA Lyon - Université de Montpellier - ENS Lyon
+Etudiant,Marc,Université de Bordeaux - INSA Lyon - Sorbonne Université - ENS Lyon - Université de Montpellier
+Etudiant,Brigitte,INSA Lyon - Sorbonne Université - Université de Montpellier - Université de Bordeaux - ENS Lyon
+Etudiant,Augustin,ENS Lyon - Université de Bordeaux - INSA Lyon - Université de Montpellier - Sorbonne Université
+Etudiant,Luc,INSA Lyon - Université de Montpellier - Sorbonne Université - Université de Bordeaux - ENS Lyon
+
+Ecole,Université de Bordeaux,Augustin - Laurent - Luc - Brigitte - Marc
+Ecole,INSA Lyon,Marc - Brigitte - Laurent - Luc - Augustin
+Ecole,Université de Montpellier,Brigitte - Augustin - Laurent - Luc - Marc
+Ecole,ENS Lyon,Augustin - Luc - Laurent - Brigitte - Marc
+Ecole,Sorbonne Université,Brigitte - Augustin - Luc - Laurent - Marc
