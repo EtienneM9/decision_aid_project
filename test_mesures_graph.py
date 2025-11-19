@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 import sys, os
 
 # Ajout du dossier courant au PATH
@@ -10,6 +11,7 @@ from mariage_stable_mesure import (
     compute_all_measures,
     compute_ranks
 )
+
 
 # ==============================
 # Test + collecte données
@@ -25,10 +27,11 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
     rank_students = []
     rank_schools = []
 
-    welfare_vals_students = []
-    welfare_vals_schools = []
+    welfare_students = []
+    welfare_schools = []
 
-    egalitarian_vals = []
+    egalitarian_students = []
+    egalitarian_schools = []
 
     for _ in range(nb_tests):
 
@@ -41,66 +44,82 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
         # Mesures complètes
         measures = compute_all_measures(prefs_students, prefs_schools, engaged)
 
-        # ===== 1) rang moyen =====
+        # ===== Rang moyen =====
         rank_students.append(measures["avg_rank_students"])
         rank_schools.append(measures["avg_rank_schools"])
 
-        # ===== 2) welfare étudiant / école =====
+        # ===== Welfare séparé =====
+        ranks_stu, ranks_sch = compute_ranks(prefs_students, prefs_schools, engaged)
         n = n_schools - 1
-        ranks_students, ranks_schools = compute_ranks(prefs_students, prefs_schools, engaged)
 
-        welfare_student = sum(1 - r/n for r in ranks_students.values())
-        welfare_school  = sum(1 - r/n for r in ranks_schools.values())
+        welfare_students.append(sum(1 - r/n for r in ranks_stu.values()))
+        welfare_schools.append(sum(1 - r/n for r in ranks_sch.values()))
 
-        welfare_vals_students.append(welfare_student)
-        welfare_vals_schools.append(welfare_school)
+        # ===== Egalitarian cost séparé =====
+        egalitarian_students.append(sum(ranks_stu.values()))
+        egalitarian_schools.append(sum(ranks_sch.values()))
 
-        # ===== 3) egalitarian cost =====
-        egalitarian_vals.append(measures["egalitarian_cost"])
-
-    x = list(range(1, nb_tests+1))
+    tests = np.arange(1, nb_tests+1)
+    bar_width = 0.35  # largeur des barres
 
     # =================================================================
-    # GRAPHIQUE 1 : Rang moyen
+    # HISTOGRAMME 1 : Rang moyen
     # =================================================================
-    plt.figure(figsize=(9,5))
-    plt.plot(x, rank_students, label="Étudiants")
-    plt.plot(x, rank_schools, label="Écoles")
+    plt.figure(figsize=(10,5))
+
+    plt.bar(tests - bar_width/2, rank_students, width=bar_width, label="Étudiants")
+    plt.bar(tests + bar_width/2, rank_schools, width=bar_width, label="Écoles")
+
+    plt.xticks(tests, [f"Test {i}" for i in tests])
+
+
     plt.title("Rang moyen par test")
-    plt.xlabel("Numéro du test")
+    plt.xlabel("Numéro de test")
     plt.ylabel("Rang moyen (0 = meilleur)")
     plt.legend()
-    plt.grid(True)
+    plt.grid(True, axis='y', linestyle='--', alpha=0.5)
 
-    plt.savefig(os.path.join(output_dir, "rang_moyen.png"), dpi=300)
+    plt.savefig(os.path.join(output_dir, "hist_rang_moyen.png"), dpi=300)
     plt.show()
 
+
     # =================================================================
-    # GRAPHIQUE 2 : Welfare
+    # HISTOGRAMME 2 : Welfare
     # =================================================================
-    plt.figure(figsize=(9,5))
-    plt.plot(x, welfare_vals_students, label="Étudiants")
-    plt.plot(x, welfare_vals_schools, label="Écoles")
+    plt.figure(figsize=(10,5))
+
+    plt.bar(tests - bar_width/2, welfare_students, width=bar_width, label="Étudiants")
+    plt.bar(tests + bar_width/2, welfare_schools, width=bar_width, label="Écoles")
+    plt.xticks(tests, [f"Test {i}" for i in tests])
+
+
     plt.title("Welfare par test")
-    plt.xlabel("Numéro du test")
+    plt.xlabel("Numéro de test")
     plt.ylabel("Welfare")
     plt.legend()
-    plt.grid(True)
+    plt.grid(True, axis='y', linestyle='--', alpha=0.5)
 
-    plt.savefig(os.path.join(output_dir, "welfare.png"), dpi=300)
+    plt.savefig(os.path.join(output_dir, "hist_welfare.png"), dpi=300)
     plt.show()
 
-    # =================================================================
-    # GRAPHIQUE 3 : Coût égalitaire
-    # =================================================================
-    plt.figure(figsize=(9,5))
-    plt.plot(x, egalitarian_vals)
-    plt.title("Coût égalitaire par test")
-    plt.xlabel("Numéro du test")
-    plt.ylabel("Coût total (plus bas = meilleur)")
-    plt.grid(True)
 
-    plt.savefig(os.path.join(output_dir, "egalitarian_cost.png"), dpi=300)
+    # =================================================================
+    # HISTOGRAMME 3 : Coût égalitaire
+    # =================================================================
+    plt.figure(figsize=(10,5))
+
+    plt.bar(tests - bar_width/2, egalitarian_students, width=bar_width, label="Étudiants")
+    plt.bar(tests + bar_width/2, egalitarian_schools, width=bar_width, label="Écoles")
+    plt.xticks(tests, [f"Test {i}" for i in tests])
+
+
+    plt.title("Coût égalitaire par test")
+    plt.xlabel("Numéro de test")
+    plt.ylabel("Coût total (plus bas = meilleur)")
+    plt.legend()
+    plt.grid(True, axis='y', linestyle='--', alpha=0.5)
+
+    plt.savefig(os.path.join(output_dir, "hist_egalitarian_cost.png"), dpi=300)
     plt.show()
 
 

@@ -1,12 +1,22 @@
 Type,Nom,Préférences
-Etudiant,Laurent,Université de Bordeaux - Sorbonne Université - INSA Lyon - Université de Montpellier - ENS Lyon
-Etudiant,Marc,Université de Bordeaux - INSA Lyon - Sorbonne Université - ENS Lyon - Université de Montpellier
-Etudiant,Brigitte,INSA Lyon - Sorbonne Université - Université de Montpellier - Université de Bordeaux - ENS Lyon
-Etudiant,Augustin,ENS Lyon - Université de Bordeaux - INSA Lyon - Université de Montpellier - Sorbonne Université
-Etudiant,Luc,INSA Lyon - Université de Montpellier - Sorbonne Université - Université de Bordeaux - ENS Lyon
+Etudiant,Agnès,Université de Montpellier - CentraleSupélec - ESSEC Business School - EM Lyon - École Polytechnique - Sorbonne Université - Université Grenoble Alpes - Télécom Paris - ENS Lyon - Mines ParisTech
+Etudiant,Nathalie,ESSEC Business School - ENS Lyon - Université de Montpellier - Télécom Paris - Sorbonne Université - Université Grenoble Alpes - CentraleSupélec - Mines ParisTech - École Polytechnique - EM Lyon
+Etudiant,Antoinette,ESSEC Business School - Mines ParisTech - École Polytechnique - Sorbonne Université - Université Grenoble Alpes - Université de Montpellier - ENS Lyon - EM Lyon - Télécom Paris - CentraleSupélec
+Etudiant,Thomas,Mines ParisTech - Université Grenoble Alpes - Télécom Paris - École Polytechnique - Université de Montpellier - CentraleSupélec - ENS Lyon - Sorbonne Université - ESSEC Business School - EM Lyon
+Etudiant,Martine,École Polytechnique - Université de Montpellier - Sorbonne Université - ESSEC Business School - Université Grenoble Alpes - Mines ParisTech - CentraleSupélec - Télécom Paris - EM Lyon - ENS Lyon
+Etudiant,Éric,Sorbonne Université - Université de Montpellier - ENS Lyon - EM Lyon - Université Grenoble Alpes - ESSEC Business School - École Polytechnique - Télécom Paris - Mines ParisTech - CentraleSupélec
+Etudiant,Arnaude,École Polytechnique - Université Grenoble Alpes - EM Lyon - Télécom Paris - Mines ParisTech - Sorbonne Université - ENS Lyon - Université de Montpellier - ESSEC Business School - CentraleSupélec
+Etudiant,Élise,EM Lyon - ESSEC Business School - CentraleSupélec - École Polytechnique - Sorbonne Université - Télécom Paris - ENS Lyon - Université Grenoble Alpes - Mines ParisTech - Université de Montpellier
+Etudiant,Alex,ESSEC Business School - Mines ParisTech - École Polytechnique - Télécom Paris - Sorbonne Université - Université de Montpellier - Université Grenoble Alpes - CentraleSupélec - EM Lyon - ENS Lyon
+Etudiant,Emmanuel,Télécom Paris - École Polytechnique - ENS Lyon - Mines ParisTech - CentraleSupélec - Université de Montpellier - Sorbonne Université - EM Lyon - Université Grenoble Alpes - ESSEC Business School
 
-Ecole,Université de Bordeaux,Augustin - Laurent - Luc - Brigitte - Marc
-Ecole,INSA Lyon,Marc - Brigitte - Laurent - Luc - Augustin
-Ecole,Université de Montpellier,Brigitte - Augustin - Laurent - Luc - Marc
-Ecole,ENS Lyon,Augustin - Luc - Laurent - Brigitte - Marc
-Ecole,Sorbonne Université,Brigitte - Augustin - Luc - Laurent - Marc
+Ecole,Université de Montpellier,Agnès - Arnaude - Alex - Emmanuel - Antoinette - Thomas - Élise - Éric - Nathalie - Martine
+Ecole,CentraleSupélec,Nathalie - Agnès - Antoinette - Martine - Alex - Éric - Élise - Arnaude - Emmanuel - Thomas
+Ecole,Télécom Paris,Martine - Antoinette - Thomas - Éric - Arnaude - Emmanuel - Alex - Élise - Nathalie - Agnès
+Ecole,Université Grenoble Alpes,Agnès - Antoinette - Alex - Martine - Emmanuel - Éric - Nathalie - Thomas - Arnaude - Élise
+Ecole,ENS Lyon,Alex - Antoinette - Thomas - Agnès - Nathalie - Arnaude - Martine - Éric - Élise - Emmanuel
+Ecole,Mines ParisTech,Éric - Agnès - Arnaude - Élise - Antoinette - Alex - Martine - Emmanuel - Nathalie - Thomas
+Ecole,École Polytechnique,Élise - Arnaude - Emmanuel - Agnès - Thomas - Éric - Antoinette - Martine - Nathalie - Alex
+Ecole,ESSEC Business School,Emmanuel - Éric - Martine - Thomas - Élise - Nathalie - Antoinette - Agnès - Arnaude - Alex
+Ecole,EM Lyon,Thomas - Emmanuel - Nathalie - Martine - Alex - Agnès - Antoinette - Éric - Arnaude - Élise
+Ecole,Sorbonne Université,Alex - Emmanuel - Nathalie - Arnaude - Éric - Élise - Agnès - Thomas - Martine - Antoinette
