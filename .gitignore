@@ -1,2 +1,3 @@
 instance_temp.csv
-./plots
+plots/
+__pycache__/
