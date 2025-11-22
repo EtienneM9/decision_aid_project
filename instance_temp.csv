@@ -1,22 +1,12 @@
 Type,Nom,Préférences
-Etudiant,Agnès,Université de Montpellier - CentraleSupélec - ESSEC Business School - EM Lyon - École Polytechnique - Sorbonne Université - Université Grenoble Alpes - Télécom Paris - ENS Lyon - Mines ParisTech
-Etudiant,Nathalie,ESSEC Business School - ENS Lyon - Université de Montpellier - Télécom Paris - Sorbonne Université - Université Grenoble Alpes - CentraleSupélec - Mines ParisTech - École Polytechnique - EM Lyon
-Etudiant,Antoinette,ESSEC Business School - Mines ParisTech - École Polytechnique - Sorbonne Université - Université Grenoble Alpes - Université de Montpellier - ENS Lyon - EM Lyon - Télécom Paris - CentraleSupélec
-Etudiant,Thomas,Mines ParisTech - Université Grenoble Alpes - Télécom Paris - École Polytechnique - Université de Montpellier - CentraleSupélec - ENS Lyon - Sorbonne Université - ESSEC Business School - EM Lyon
-Etudiant,Martine,École Polytechnique - Université de Montpellier - Sorbonne Université - ESSEC Business School - Université Grenoble Alpes - Mines ParisTech - CentraleSupélec - Télécom Paris - EM Lyon - ENS Lyon
-Etudiant,Éric,Sorbonne Université - Université de Montpellier - ENS Lyon - EM Lyon - Université Grenoble Alpes - ESSEC Business School - École Polytechnique - Télécom Paris - Mines ParisTech - CentraleSupélec
-Etudiant,Arnaude,École Polytechnique - Université Grenoble Alpes - EM Lyon - Télécom Paris - Mines ParisTech - Sorbonne Université - ENS Lyon - Université de Montpellier - ESSEC Business School - CentraleSupélec
-Etudiant,Élise,EM Lyon - ESSEC Business School - CentraleSupélec - École Polytechnique - Sorbonne Université - Télécom Paris - ENS Lyon - Université Grenoble Alpes - Mines ParisTech - Université de Montpellier
-Etudiant,Alex,ESSEC Business School - Mines ParisTech - École Polytechnique - Télécom Paris - Sorbonne Université - Université de Montpellier - Université Grenoble Alpes - CentraleSupélec - EM Lyon - ENS Lyon
-Etudiant,Emmanuel,Télécom Paris - École Polytechnique - ENS Lyon - Mines ParisTech - CentraleSupélec - Université de Montpellier - Sorbonne Université - EM Lyon - Université Grenoble Alpes - ESSEC Business School
+Etudiant,Victoire,CentraleSupélec - HEC Paris - INSA Lyon - ESSEC Business School - Université de Bordeaux
+Etudiant,Astrid,CentraleSupélec - INSA Lyon - ESSEC Business School - Université de Bordeaux - HEC Paris
+Etudiant,André,INSA Lyon - Université de Bordeaux - HEC Paris - CentraleSupélec - ESSEC Business School
+Etudiant,Arthur,HEC Paris - INSA Lyon - CentraleSupélec - Université de Bordeaux - ESSEC Business School
+Etudiant,Thomas,Université de Bordeaux - ESSEC Business School - CentraleSupélec - HEC Paris - INSA Lyon
 
-Ecole,Université de Montpellier,Agnès - Arnaude - Alex - Emmanuel - Antoinette - Thomas - Élise - Éric - Nathalie - Martine
-Ecole,CentraleSupélec,Nathalie - Agnès - Antoinette - Martine - Alex - Éric - Élise - Arnaude - Emmanuel - Thomas
-Ecole,Télécom Paris,Martine - Antoinette - Thomas - Éric - Arnaude - Emmanuel - Alex - Élise - Nathalie - Agnès
-Ecole,Université Grenoble Alpes,Agnès - Antoinette - Alex - Martine - Emmanuel - Éric - Nathalie - Thomas - Arnaude - Élise
-Ecole,ENS Lyon,Alex - Antoinette - Thomas - Agnès - Nathalie - Arnaude - Martine - Éric - Élise - Emmanuel
-Ecole,Mines ParisTech,Éric - Agnès - Arnaude - Élise - Antoinette - Alex - Martine - Emmanuel - Nathalie - Thomas
-Ecole,École Polytechnique,Élise - Arnaude - Emmanuel - Agnès - Thomas - Éric - Antoinette - Martine - Nathalie - Alex
-Ecole,ESSEC Business School,Emmanuel - Éric - Martine - Thomas - Élise - Nathalie - Antoinette - Agnès - Arnaude - Alex
-Ecole,EM Lyon,Thomas - Emmanuel - Nathalie - Martine - Alex - Agnès - Antoinette - Éric - Arnaude - Élise
-Ecole,Sorbonne Université,Alex - Emmanuel - Nathalie - Arnaude - Éric - Élise - Agnès - Thomas - Martine - Antoinette
+Ecole,INSA Lyon,Arthur - Victoire - Thomas - André - Astrid
+Ecole,Université de Bordeaux,Thomas - Victoire - Astrid - André - Arthur
+Ecole,CentraleSupélec,André - Arthur - Astrid - Thomas - Victoire
+Ecole,HEC Paris,Victoire - Thomas - Arthur - Astrid - André
+Ecole,ESSEC Business School,Thomas - André - Victoire - Arthur - Astrid
