@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 import time
 import io
 import zipfile
-import numpy as np
+import base64
+
 
 from generate_preference import generate_preferences, save_to_csv
 from mariage_stable_mesure import (
@@ -208,49 +209,60 @@ if start_btn:
         engaged_final = st.session_state["engaged_final"]
         results = st.session_state["results"]
 
-        df_result = pd.DataFrame([{"École": e, "Étudiant affecté": engaged_final[e]} for e in engaged_final])
-        csv = df_result.to_csv(index=False).encode("utf-8")
-
-        st.download_button(
-            label="📥 Télécharger le résultat final au format CSV",
-            data=csv,
-            file_name="resultats_mariage_stable.csv",
-            mime="text/csv",
-            key="download_results"  # clé unique pour éviter les re-renders
+        # ===============================
+        # CSV des appariements finaux
+        # ===============================
+        df_result = pd.DataFrame(
+            [{"École": e, "Étudiant affecté": engaged_final[e]} for e in engaged_final]
+        )
+        csv_result = df_result.to_csv(index=False).encode("utf-8")
+        b64_csv_result = base64.b64encode(csv_result).decode()
+        href_result = (
+            f'<a href="data:text/csv;base64,{b64_csv_result}" '
+            'download="resultats_mariage_stable.csv" '
+            'style="display:inline-block;background-color:#0078ff;color:white;'
+            'padding:10px 18px;border-radius:8px;text-decoration:none;margin:6px;">'
+            '📥 Télécharger le résultat final (CSV)</a>'
         )
 
-        # Bonus : téléchargement des mesures globales
+        # ===============================
+        # CSV des mesures globales
+        # ===============================
         results_df = pd.DataFrame([results])
-        st.download_button(
-            label="📊 Télécharger les mesures globales (CSV)",
-            data=results_df.to_csv(index=False).encode("utf-8"),
-            file_name="mesures_mariage_stable.csv",
-            mime="text/csv",
-            key="download_measures"
+        csv_measures = results_df.to_csv(index=False).encode("utf-8")
+        b64_csv_measures = base64.b64encode(csv_measures).decode()
+        href_measures = (
+            f'<a href="data:text/csv;base64,{b64_csv_measures}" '
+            'download="mesures_mariage_stable.csv" '
+            'style="display:inline-block;background-color:#20bf55;color:white;'
+            'padding:10px 18px;border-radius:8px;text-decoration:none;margin:6px;">'
+            '📊 Télécharger les mesures globales (CSV)</a>'
         )
 
-        st.download_button(
-            label="📦 Télécharger les 3 graphiques en PNG (.zip)",
-            data=zip_buffer.getvalue(),
-            file_name="graphiques_mariage_stable.zip",
-            mime="application/zip",
-            key="download_zip_plots"
+        # ===============================
+        # ZIP des graphiques
+        # ===============================
+        zip_data = zip_buffer.getvalue()
+        b64_zip = base64.b64encode(zip_data).decode()
+        href_zip = (
+            f'<a href="data:application/zip;base64,{b64_zip}" '
+            'download="graphiques_mariage_stable.zip" '
+            'style="display:inline-block;background-color:#ff7b00;color:white;'
+            'padding:10px 18px;border-radius:8px;text-decoration:none;margin:6px;">'
+            '📦 Télécharger les 3 graphiques (.zip)</a>'
         )
 
-    else:
-        st.warning("Aucun résultat disponible. Exécutez d'abord la simulation avant de télécharger.")
-
-        df_result = pd.DataFrame([{"École": e, "Étudiant affecté": engaged_final[e]} for e in engaged_final])
-        csv = df_result.to_csv(index=False).encode("utf-8")
-
-        st.download_button(
-            label="📥 Télécharger les résultats au format CSV",
-            data=csv,
-            file_name="resultats_mariage_stable.csv",
-            mime="text/csv",
-            help="Cliquez pour enregistrer les appariements finaux"
-        )
-
+        # ===============================
+        # Affichage des trois boutons horizontaux
+        # ===============================
+        html_block = f"""
+        <div style="text-align:center;">
+            {href_result}
+            {href_measures}
+            {href_zip}
+        </div>
+        """
+        st.markdown(html_block, unsafe_allow_html=True)
 
 else:
     st.info("👉 Choisis les paramètres à gauche puis clique sur **Générer et exécuter l'algorithme**.")

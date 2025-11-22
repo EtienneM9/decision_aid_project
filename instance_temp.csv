@@ -1,8 +1,8 @@
 Type,Nom,Préférences
-Etudiant,Olivier,École Polytechnique - INSA Lyon - Université de Montpellier
-Etudiant,Christiane,Université de Montpellier - École Polytechnique - INSA Lyon
-Etudiant,Émile,Université de Montpellier - INSA Lyon - École Polytechnique
+Etudiant,Denise,EM Lyon - HEC Paris - Université de Montpellier
+Etudiant,Lucas,HEC Paris - Université de Montpellier - EM Lyon
+Etudiant,Honoré,HEC Paris - Université de Montpellier - EM Lyon
 
-Ecole,INSA Lyon,Christiane - Olivier - Émile
-Ecole,École Polytechnique,Émile - Olivier - Christiane
-Ecole,Université de Montpellier,Christiane - Olivier - Émile
+Ecole,EM Lyon,Denise - Lucas - Honoré
+Ecole,Université de Montpellier,Denise - Honoré - Lucas
+Ecole,HEC Paris,Honoré - Lucas - Denise
