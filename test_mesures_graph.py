@@ -69,7 +69,7 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
     # =================================================================
     # HISTOGRAMME : Rang moyen (tests + moyenne)
     # =================================================================
-    plt.figure(figsize=(10,5))
+    fig1, ax1 = plt.subplots(figsize=(7, 3.5))
 
     rank_students_extended = rank_students + [mean_rank_stu]
     rank_schools_extended  = rank_schools + [mean_rank_sch]
@@ -77,32 +77,32 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
     labels_rank = [f"Test {i}" for i in tests] + ["Moyenne"]
     pos_rank = np.arange(len(labels_rank))
 
-    bars_rank_students = plt.bar(pos_rank - bar_width/2, rank_students_extended,
+    bars_rank_students = ax1.bar(pos_rank - bar_width/2, rank_students_extended,
                                  width=bar_width, label="Étudiants")
-    bars_rank_schools  = plt.bar(pos_rank + bar_width/2, rank_schools_extended,
+    bars_rank_schools  = ax1.bar(pos_rank + bar_width/2, rank_schools_extended,
                                  width=bar_width, label="Écoles")
 
     # COLORATION des deux barres "Moyenne"
     bars_rank_students[-1].set_color("tab:green")   # Étudiants (moyenne)
     bars_rank_schools[-1].set_color("tab:red")    # Écoles (moyenne)
 
-    plt.xticks(pos_rank, labels_rank, rotation=45)
-    plt.title("Rang moyen par test + moyenne finale")
-    plt.xlabel("Tests")
-    plt.ylabel("Rang moyen (0 = meilleur)")
-    plt.legend()
-    plt.grid(True, axis='y', linestyle='--', alpha=0.5)
-    plt.tight_layout()
+    ax1.set_xticks(pos_rank)
+    ax1.set_xticklabels(labels_rank, rotation=45)
+    ax1.set_title("Rang moyen par test + moyenne finale")
+    ax1.set_xlabel("Tests")
+    ax1.set_ylabel("Rang moyen (0 = meilleur)")
+    ax1.legend()
+    ax1.grid(True, axis="y", linestyle="--", alpha=0.5)
+    fig1.tight_layout()
+    fig1.savefig(os.path.join(output_dir, "hist_rang_moyen_plus_moyenne.png"), dpi=300)
 
-    plt.savefig(os.path.join(output_dir, "hist_rang_moyen_plus_moyenne.png"), dpi=300)
-    plt.show()
 
 
 
     # =================================================================
     # HISTOGRAMME : Welfare (tests + moyenne)
     # =================================================================
-    plt.figure(figsize=(10,5))
+    fig2, ax2 = plt.subplots(figsize=(7, 3.5))
 
     # Fusion données
     welfare_students_extended = welfare_students + [mean_welfare_stu]
@@ -112,29 +112,28 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
     pos = np.arange(len(labels_welfare))
 
     # Barres normales (tests)
-    bars_students = plt.bar(pos - bar_width/2, welfare_students_extended, width=bar_width, label="Étudiants")
-    bars_schools  = plt.bar(pos + bar_width/2, welfare_schools_extended,  width=bar_width, label="Écoles")
+    bars_students = ax2.bar(pos - bar_width/2, welfare_students_extended, width=bar_width, label="Étudiants")
+    bars_schools  = ax2.bar(pos + bar_width/2, welfare_schools_extended,  width=bar_width, label="Écoles")
 
     bars_students[-1].set_color("tab:green")   # barres Étudiants moyenne
     bars_schools[-1].set_color("tab:red")      # barres Écoles moyenne
 
-    plt.xticks(pos, labels_welfare, rotation=45)
-    plt.title("Welfare par test + moyenne finale")
-    plt.xlabel("Tests")
-    plt.ylabel("Welfare")
-    plt.legend()
-    plt.grid(True, axis='y', linestyle='--', alpha=0.5)
-    plt.tight_layout()
-
-    plt.savefig(os.path.join(output_dir, "hist_welfare_plus_moyenne.png"), dpi=300)
-    plt.show()
+    ax2.set_xticks(pos)
+    ax2.set_xticklabels(labels_welfare, rotation=45)
+    ax2.set_title("Welfare par test + moyenne finale")
+    ax2.set_xlabel("Tests")
+    ax2.set_ylabel("Welfare (plus haut = mieux)")
+    ax2.legend()
+    ax2.grid(True, axis="y", linestyle="--", alpha=0.5)
+    fig2.tight_layout()
+    fig2.savefig(os.path.join(output_dir, "hist_welfare_plus_moyenne.png"), dpi=300)
 
 
 
         # =================================================================
     # HISTOGRAMME : Coût égalitaire (tests + moyenne)
     # =================================================================
-    plt.figure(figsize=(10,5))
+    fig3, ax3 = plt.subplots(figsize=(7, 3.5))
 
     egalitarian_students_extended = egalitarian_students + [mean_egal_stu]
     egalitarian_schools_extended  = egalitarian_schools  + [mean_egal_sch]
@@ -142,25 +141,26 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
     labels_egal = [f"Test {i}" for i in tests] + ["Moyenne"]
     pos_egal = np.arange(len(labels_egal))
 
-    bars_egal_students = plt.bar(pos_egal - bar_width/2, egalitarian_students_extended,
+    bars_egal_students = ax3.bar(pos_egal - bar_width/2, egalitarian_students_extended,
                                  width=bar_width, label="Étudiants")
-    bars_egal_schools  = plt.bar(pos_egal + bar_width/2, egalitarian_schools_extended,
+    bars_egal_schools  = ax3.bar(pos_egal + bar_width/2, egalitarian_schools_extended,
                                  width=bar_width, label="Écoles")
 
     # COLORATION des deux barres "Moyenne"
     bars_egal_students[-1].set_color("tab:green")   # Étudiants (moyenne)
     bars_egal_schools[-1].set_color("tab:red")      # Écoles (moyenne)
 
-    plt.xticks(pos_egal, labels_egal, rotation=45)
-    plt.title("Coût égalitaire par test + moyenne finale")
-    plt.xlabel("Tests")
-    plt.ylabel("Coût total (plus bas = meilleur)")
-    plt.legend()
-    plt.grid(True, axis='y', linestyle='--', alpha=0.5)
-    plt.tight_layout()
+    ax3.set_xticks(pos_egal)
+    ax3.set_xticklabels(labels_egal, rotation=45)
+    ax3.set_title("Coût égalitaire par test + moyenne finale")
+    ax3.set_xlabel("Tests")
+    ax3.set_ylabel("Coût total (plus bas = meilleur)")
+    ax3.legend()
+    ax3.grid(True, axis="y", linestyle="--", alpha=0.5)
+    fig3.tight_layout()
+    fig3.savefig(os.path.join(output_dir, "hist_egalitarian_plus_moyenne.png"), dpi=300)
 
-    plt.savefig(os.path.join(output_dir, "hist_egalitarian_plus_moyenne.png"), dpi=300)
-    plt.show()
+    return fig1, fig2, fig3
 
 
 
