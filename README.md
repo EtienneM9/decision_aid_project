@@ -7,6 +7,9 @@ This project implements the **Gale-Shapley stable marriage algorithm** to match 
 - **`generate_preference.py`** - Generates random preference instances
 - **`instance.csv`** - Contains the preference data (generated or manually created)
 - **`mariage_stable`** - Implements the stable marriage algorithm and solves the matching problem
+- **test_mesures_graph.py** - Generates bar charts and comparative graphs for multiple random instances
+- **ui.py** - Interactive Streamlit interface to simulate, visualize, and export results
+- **instance_temp.csv** - Temporal CSV containing student and school preferences used by ui.py
 
 ---
 
@@ -36,6 +39,52 @@ python3 mariage_stable.py
 ```
 
 This reads `instance.csv` and computes a stable matching between students and schools.
+
+### 3. (Optional) Compute and Analyze Metrics
+
+You can evaluate satisfaction scores, welfare, and egalitarian cost using:
+
+```bash
+python3 mariage_stable_mesure.py
+```
+
+Or visualize the results over multiple random instances:
+
+```bash
+python3 test_mesures_graph.py
+```
+
+This generates histograms of ranks, welfare, and fairness in the plots/ folder (as .png files).
+
+### Launch the Interactive Streamlit UI
+
+A full visual interface is available to watch the algorithm step-by-step, analyze results, and download files interactively.
+
+Run the UI:
+
+```bash
+streamlit run ui.py
+```
+
+Features:
+
+- Animated simulation of the Gale–Shapley process
+
+- Real-time visualization of current engagements
+
+- Automatic computation of satisfaction metrics
+
+- Generation of bar graphs across multiple random tests
+
+- Instant download of: Matching results (CSV), Global metrics (CSV) and Graphs (ZIP of PNG files)
+
+Example:
+
+When launched, Streamlit will open a local URL such as:
+
+```bash
+http://localhost:8501
+```
 
 ---
 
