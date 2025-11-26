@@ -33,8 +33,9 @@ L'algorithme garantit un résultat stable et permet d'analyser la satisfaction m
 # PARAMÈTRES UTILISATEUR
 # ============================================================
 st.sidebar.header("Paramètres")
-n_entites = st.sidebar.slider("Nombre d'entités ", 2, 10, 5)
-nb_tests = st.sidebar.slider("Nombre d'instances aléatoires", 1, 20, 5)
+n_entites = st.sidebar.slider("Nombre d'entités ", 2, 50, 5)
+nb_tests = st.sidebar.slider("Nombre d'instances aléatoires", 1, 50, 5)
+speed = st.sidebar.slider("Vitesse d'exécution (démo)", 0.0, 5.0, 1.0)
 start_btn = st.sidebar.button("Générer et exécuter l'algorithme")
 
 # ============================================================
@@ -130,7 +131,7 @@ if start_btn:
 
     st.markdown("---")
     st.subheader("Déroulement pas à pas")
-    engaged = mariage_stable_animated(prefs_students, prefs_schools, speed=1.0)
+    engaged = mariage_stable_animated(prefs_students, prefs_schools, speed)
 
     # ============================================================
     # MESURES FINALES

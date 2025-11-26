@@ -10,8 +10,24 @@ SCHOOLS_FR = [
     "École Polytechnique", "HEC Paris", "Sorbonne Université", "INSA Lyon",
     "ESSEC Business School", "Sciences Po", "Mines ParisTech", "ENSAE Paris",
     "Université de Montpellier", "CentraleSupélec", "Université de Bordeaux",
-    "ENS Lyon", "Télécom Paris", "Université Grenoble Alpes", "EM Lyon"
+    "ENS Lyon", "Télécom Paris", "Université Grenoble Alpes", "EM Lyon",
+    "Université Paris-Saclay", "Université de Lille", "Université de Strasbourg",
+    "Université de Nantes", "Université de Rennes 1", "Université Toulouse III - Paul Sabatier",
+    "Université Paris Cité", "Université de Lorraine", "Université de Nice - Côte d’Azur",
+    "Université de Caen Normandie", "Université de Tours", "Université d’Angers",
+    "Université Clermont Auvergne", "Université de Reims Champagne-Ardenne",
+    "Université de Franche-Comté", "Université de La Réunion",
+    "Université de Poitiers", "Université Savoie Mont Blanc", "Université de Rouen Normandie",
+    "Université d’Orléans", "Université de Limoges", "Université de Perpignan Via Domitia",
+    "Université de Pau et des Pays de l’Adour", "Université du Mans", "Université d’Artois",
+    "Université de Valenciennes", "Université d’Évry-Val-d’Essonne",
+    "Université Paris Nanterre", "Université Paris 1 Panthéon-Sorbonne",
+    "Université Paris Dauphine-PSL", "Université Paris-Est Créteil (UPEC)",
+    "Université Paris 8 Vincennes-Saint-Denis", "Université Gustave Eiffel",
+    "Université de Technologie de Compiègne (UTC)", "Université de Technologie de Troyes (UTT)",
+    "Université de Technologie de Belfort-Montbéliard (UTBM)"
 ]
+
 
 def generate_preferences(n_students, n_schools):
     """Génère des préférences aléatoires pour n étudiants et n écoles."""
