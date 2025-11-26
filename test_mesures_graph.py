@@ -5,12 +5,39 @@ import sys, os
 # Ajout du dossier courant au PATH
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from generate_preference import generate_preferences
 from mariage_stable_mesure import (
     mariage_stable,
     compute_all_measures,
     compute_ranks
 )
+
+def read_instance_bench(filename="instances_benchmark.csv"):
+    """
+    Lit un fichier CSV généré par generate_preference.py
+    et retourne deux dictionnaires :
+      - prefs_students : {étudiant: [écoles...]}
+      - prefs_schools  : {école: [étudiants...]}
+    """
+    prefs_students = {}
+    prefs_schools = {}
+
+    with open(filename, "r", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        next(reader)  # sauter l'en-tête
+
+        for row in reader:
+            if not row or len(row) < 3:
+                continue
+
+            entity_type, name, preferences = row
+            prefs_list = [p.strip() for p in preferences.split(" - ")]
+
+            if entity_type == "Etudiant":
+                prefs_students[name] = prefs_list
+            elif entity_type == "Ecole":
+                prefs_schools[name] = prefs_list
+
+    return prefs_students, prefs_schools
 
 
 def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
@@ -30,8 +57,11 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
     egalitarian_schools = []
 
     for _ in range(nb_tests):
+        
+        students, schools, prefs_students, prefs_schools = generate_preferences(n_entites, n_entites)
+        save_to_csv(students, schools, prefs_students, prefs_schools, "instances_bench.csv")
 
-        students, schools, prefs_students, prefs_schools = generate_preferences(n_students, n_schools)
+        prefs_students, prefs_schools = read_instance_bench(n_students, n_schools)
         # Mariage stable
         engaged = mariage_stable(prefs_students, prefs_schools)
 
@@ -39,7 +69,7 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
         measures = compute_all_measures(prefs_students, prefs_schools, engaged)
 
         # ===== Rang moyen =====
-        rank_students.append(measures["avg_rank_students"])
+        +.append(measures["avg_rank_students"])
         rank_schools.append(measures["avg_rank_schools"])
 
         # ===== Welfare séparé : on decompose le walfare globale pour les etudiants et les etablissements=====
@@ -67,7 +97,7 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
 
 
     # =================================================================
-    # HISTOGRAMME : Rang moyen (tests + moyenne)
+    # HISTOGRAMME : Rang moyen (benchmark + moyenne)
     # =================================================================
     fig1, ax1 = plt.subplots(figsize=(7, 3.5))
 
@@ -100,7 +130,7 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
 
 
     # =================================================================
-    # HISTOGRAMME : Welfare (tests + moyenne)
+    # HISTOGRAMME : Welfare (benchmark + moyenne)
     # =================================================================
     fig2, ax2 = plt.subplots(figsize=(7, 3.5))
 

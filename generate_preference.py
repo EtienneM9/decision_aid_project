@@ -46,6 +46,7 @@ def generate_preferences(n_students, n_schools):
 
 def save_to_csv(students, schools, prefs_students, prefs_schools, filename="instance_vrais_noms.csv"):
     """Enregistre les préférences dans un fichier CSV."""
+
     with open(filename, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
 
