@@ -1,0 +1,201 @@
+Type,Nom,Préférences
+Etudiant,André,ENS Lyon - Université de Technologie de Troyes (UTT) - Université de Poitiers - Université de La Réunion - Université de Technologie de Belfort-Montbéliard (UTBM)
+Etudiant,Julie,Université de Technologie de Belfort-Montbéliard (UTBM) - Université de Poitiers - Université de La Réunion - Université de Technologie de Troyes (UTT) - ENS Lyon
+Etudiant,Lorraine,Université de La Réunion - ENS Lyon - Université de Technologie de Belfort-Montbéliard (UTBM) - Université de Technologie de Troyes (UTT) - Université de Poitiers
+Etudiant,Eugène,ENS Lyon - Université de Technologie de Troyes (UTT) - Université de Technologie de Belfort-Montbéliard (UTBM) - Université de La Réunion - Université de Poitiers
+Etudiant,Anouk,ENS Lyon - Université de Technologie de Troyes (UTT) - Université de La Réunion - Université de Poitiers - Université de Technologie de Belfort-Montbéliard (UTBM)
+Ecole,Université de La Réunion,Eugène - André - Anouk - Lorraine - Julie
+Ecole,Université de Poitiers,Anouk - Lorraine - Eugène - André - Julie
+Ecole,ENS Lyon,Lorraine - Eugène - André - Julie - Anouk
+Ecole,Université de Technologie de Belfort-Montbéliard (UTBM),Lorraine - Julie - Eugène - Anouk - André
+Ecole,Université de Technologie de Troyes (UTT),Anouk - Lorraine - Julie - André - Eugène
+
+Etudiant,Alfred,Université Savoie Mont Blanc - Université de Strasbourg - Université Paris 1 Panthéon-Sorbonne - Université de Bordeaux - Université Grenoble Alpes
+Etudiant,André,Université Grenoble Alpes - Université Savoie Mont Blanc - Université Paris 1 Panthéon-Sorbonne - Université de Strasbourg - Université de Bordeaux
+Etudiant,Inès,Université Grenoble Alpes - Université de Strasbourg - Université de Bordeaux - Université Savoie Mont Blanc - Université Paris 1 Panthéon-Sorbonne
+Etudiant,William,Université de Bordeaux - Université Savoie Mont Blanc - Université Grenoble Alpes - Université de Strasbourg - Université Paris 1 Panthéon-Sorbonne
+Etudiant,Bernard,Université Paris 1 Panthéon-Sorbonne - Université de Strasbourg - Université Grenoble Alpes - Université de Bordeaux - Université Savoie Mont Blanc
+Ecole,Université Grenoble Alpes,William - Alfred - Bernard - André - Inès
+Ecole,Université Savoie Mont Blanc,Inès - Bernard - William - André - Alfred
+Ecole,Université Paris 1 Panthéon-Sorbonne,William - Inès - André - Alfred - Bernard
+Ecole,Université de Bordeaux,André - Bernard - Alfred - Inès - William
+Ecole,Université de Strasbourg,Alfred - Bernard - Inès - William - André
+
+Etudiant,Suzanne,Université Gustave Eiffel - Université d’Évry-Val-d’Essonne - ENS Lyon - Université Paris-Saclay - Université de La Réunion
+Etudiant,Georges,Université Paris-Saclay - Université de La Réunion - Université d’Évry-Val-d’Essonne - Université Gustave Eiffel - ENS Lyon
+Etudiant,Marcel,Université Paris-Saclay - ENS Lyon - Université de La Réunion - Université Gustave Eiffel - Université d’Évry-Val-d’Essonne
+Etudiant,Pierre,Université Paris-Saclay - Université Gustave Eiffel - ENS Lyon - Université de La Réunion - Université d’Évry-Val-d’Essonne
+Etudiant,Matthieu,Université Gustave Eiffel - ENS Lyon - Université d’Évry-Val-d’Essonne - Université de La Réunion - Université Paris-Saclay
+Ecole,Université Paris-Saclay,Georges - Pierre - Suzanne - Matthieu - Marcel
+Ecole,ENS Lyon,Suzanne - Georges - Marcel - Pierre - Matthieu
+Ecole,Université Gustave Eiffel,Georges - Suzanne - Matthieu - Pierre - Marcel
+Ecole,Université d’Évry-Val-d’Essonne,Suzanne - Georges - Pierre - Marcel - Matthieu
+Ecole,Université de La Réunion,Pierre - Marcel - Georges - Matthieu - Suzanne
+
+Etudiant,Alfred,Université de Pau et des Pays de l’Adour - Université de Lorraine - EM Lyon - Université d’Angers - Université de Limoges
+Etudiant,Thibault,EM Lyon - Université d’Angers - Université de Limoges - Université de Lorraine - Université de Pau et des Pays de l’Adour
+Etudiant,Frédéric,Université de Pau et des Pays de l’Adour - Université d’Angers - Université de Lorraine - Université de Limoges - EM Lyon
+Etudiant,Victoire,Université d’Angers - EM Lyon - Université de Pau et des Pays de l’Adour - Université de Limoges - Université de Lorraine
+Etudiant,Gérard,EM Lyon - Université d’Angers - Université de Lorraine - Université de Pau et des Pays de l’Adour - Université de Limoges
+Ecole,Université de Pau et des Pays de l’Adour,Thibault - Gérard - Frédéric - Alfred - Victoire
+Ecole,EM Lyon,Alfred - Gérard - Victoire - Thibault - Frédéric
+Ecole,Université d’Angers,Victoire - Gérard - Thibault - Frédéric - Alfred
+Ecole,Université de Limoges,Thibault - Frédéric - Alfred - Victoire - Gérard
+Ecole,Université de Lorraine,Gérard - Thibault - Frédéric - Victoire - Alfred
+
+Etudiant,Raymond,ENS Lyon - Université de Limoges - Université de Strasbourg - Université de Nice - Côte d’Azur - Université de Perpignan Via Domitia
+Etudiant,Louis,Université de Perpignan Via Domitia - ENS Lyon - Université de Nice - Côte d’Azur - Université de Strasbourg - Université de Limoges
+Etudiant,Bernard,Université de Strasbourg - Université de Perpignan Via Domitia - Université de Nice - Côte d’Azur - Université de Limoges - ENS Lyon
+Etudiant,Valérie,Université de Limoges - Université de Strasbourg - ENS Lyon - Université de Perpignan Via Domitia - Université de Nice - Côte d’Azur
+Etudiant,Anouk,Université de Nice - Côte d’Azur - Université de Limoges - ENS Lyon - Université de Perpignan Via Domitia - Université de Strasbourg
+Ecole,Université de Perpignan Via Domitia,Anouk - Raymond - Bernard - Valérie - Louis
+Ecole,Université de Limoges,Anouk - Raymond - Louis - Bernard - Valérie
+Ecole,ENS Lyon,Raymond - Anouk - Bernard - Louis - Valérie
+Ecole,Université de Nice - Côte d’Azur,Raymond - Anouk - Bernard - Valérie - Louis
+Ecole,Université de Strasbourg,Valérie - Louis - Anouk - Bernard - Raymond
+
+Etudiant,Frédéric,Université de La Réunion - HEC Paris - Sciences Po - Université Paris Dauphine-PSL
+Etudiant,Andrée,Université Paris Dauphine-PSL - HEC Paris - Sciences Po - Université de La Réunion
+Etudiant,Adrienne,Sciences Po - Université de La Réunion - HEC Paris - Université Paris Dauphine-PSL
+Etudiant,Margaux,Université de La Réunion - Sciences Po - Université Paris Dauphine-PSL - HEC Paris
+Ecole,HEC Paris,Margaux - Adrienne - Andrée - Frédéric
+Ecole,Université Paris Dauphine-PSL,Margaux - Adrienne - Andrée - Frédéric
+Ecole,Sciences Po,Adrienne - Frédéric - Andrée - Margaux
+Ecole,Université de La Réunion,Margaux - Andrée - Adrienne - Frédéric
+
+Etudiant,Suzanne,ENSAE Paris - Université de Caen Normandie - Université de La Réunion - Sciences Po
+Etudiant,Pierre,ENSAE Paris - Sciences Po - Université de Caen Normandie - Université de La Réunion
+Etudiant,Marcel,ENSAE Paris - Sciences Po - Université de Caen Normandie - Université de La Réunion
+Etudiant,Gilles,Université de Caen Normandie - Université de La Réunion - ENSAE Paris - Sciences Po
+Ecole,Sciences Po,Marcel - Gilles - Suzanne - Pierre
+Ecole,ENSAE Paris,Pierre - Suzanne - Gilles - Marcel
+Ecole,Université de Caen Normandie,Pierre - Suzanne - Gilles - Marcel
+Ecole,Université de La Réunion,Marcel - Suzanne - Gilles - Pierre
+
+Etudiant,Alain,École Polytechnique - ENSAE Paris - Université de Valenciennes - Université de Limoges
+Etudiant,Pénélope,École Polytechnique - Université de Valenciennes - ENSAE Paris - Université de Limoges
+Etudiant,Catherine,ENSAE Paris - Université de Valenciennes - École Polytechnique - Université de Limoges
+Etudiant,Jacques,Université de Limoges - ENSAE Paris - Université de Valenciennes - École Polytechnique
+Ecole,École Polytechnique,Catherine - Jacques - Pénélope - Alain
+Ecole,Université de Valenciennes,Alain - Jacques - Catherine - Pénélope
+Ecole,ENSAE Paris,Jacques - Alain - Catherine - Pénélope
+Ecole,Université de Limoges,Alain - Jacques - Catherine - Pénélope
+
+Etudiant,Aimée,Université de Poitiers - Université de Limoges - Université d’Angers - Université Paris Cité
+Etudiant,René,Université de Poitiers - Université de Limoges - Université d’Angers - Université Paris Cité
+Etudiant,Bertrand,Université de Limoges - Université d’Angers - Université de Poitiers - Université Paris Cité
+Etudiant,Monique,Université d’Angers - Université de Limoges - Université de Poitiers - Université Paris Cité
+Ecole,Université Paris Cité,René - Monique - Aimée - Bertrand
+Ecole,Université de Limoges,Monique - Bertrand - René - Aimée
+Ecole,Université de Poitiers,Bertrand - Aimée - Monique - René
+Ecole,Université d’Angers,Aimée - Monique - Bertrand - René
+
+Etudiant,Thibaut,Université de Valenciennes - Télécom Paris - Université Savoie Mont Blanc - Université de Nice - Côte d’Azur
+Etudiant,Stéphane,Université de Nice - Côte d’Azur - Télécom Paris - Université de Valenciennes - Université Savoie Mont Blanc
+Etudiant,Christine,Université de Valenciennes - Télécom Paris - Université Savoie Mont Blanc - Université de Nice - Côte d’Azur
+Etudiant,Joseph,Université de Nice - Côte d’Azur - Télécom Paris - Université Savoie Mont Blanc - Université de Valenciennes
+Ecole,Université de Valenciennes,Joseph - Thibaut - Stéphane - Christine
+Ecole,Université Savoie Mont Blanc,Stéphane - Joseph - Thibaut - Christine
+Ecole,Télécom Paris,Stéphane - Christine - Thibaut - Joseph
+Ecole,Université de Nice - Côte d’Azur,Thibaut - Stéphane - Christine - Joseph
+
+Etudiant,Alfred,Université de Franche-Comté - Université d’Orléans - Université Paris Dauphine-PSL - Université de Technologie de Troyes (UTT)
+Etudiant,Victoire,Université Paris Dauphine-PSL - Université d’Orléans - Université de Technologie de Troyes (UTT) - Université de Franche-Comté
+Etudiant,Élodie,Université de Franche-Comté - Université d’Orléans - Université Paris Dauphine-PSL - Université de Technologie de Troyes (UTT)
+Etudiant,Julie,Université d’Orléans - Université Paris Dauphine-PSL - Université de Franche-Comté - Université de Technologie de Troyes (UTT)
+Ecole,Université de Technologie de Troyes (UTT),Élodie - Julie - Victoire - Alfred
+Ecole,Université d’Orléans,Victoire - Alfred - Julie - Élodie
+Ecole,Université Paris Dauphine-PSL,Alfred - Élodie - Julie - Victoire
+Ecole,Université de Franche-Comté,Élodie - Alfred - Victoire - Julie
+
+Etudiant,Hélène,Université Paris 8 Vincennes-Saint-Denis - Université d’Évry-Val-d’Essonne - Université de Franche-Comté - Université de Valenciennes
+Etudiant,Adrien,Université de Valenciennes - Université d’Évry-Val-d’Essonne - Université de Franche-Comté - Université Paris 8 Vincennes-Saint-Denis
+Etudiant,Xavier,Université de Valenciennes - Université Paris 8 Vincennes-Saint-Denis - Université d’Évry-Val-d’Essonne - Université de Franche-Comté
+Etudiant,Monique,Université de Franche-Comté - Université Paris 8 Vincennes-Saint-Denis - Université de Valenciennes - Université d’Évry-Val-d’Essonne
+Ecole,Université d’Évry-Val-d’Essonne,Hélène - Monique - Xavier - Adrien
+Ecole,Université Paris 8 Vincennes-Saint-Denis,Monique - Adrien - Xavier - Hélène
+Ecole,Université de Franche-Comté,Monique - Hélène - Xavier - Adrien
+Ecole,Université de Valenciennes,Xavier - Hélène - Adrien - Monique
+
+Etudiant,Jacques,Université Paris Nanterre - ENS Lyon - Université de La Réunion - Université Paris-Saclay
+Etudiant,Valentine,ENS Lyon - Université Paris-Saclay - Université de La Réunion - Université Paris Nanterre
+Etudiant,Christophe,Université Paris Nanterre - Université de La Réunion - ENS Lyon - Université Paris-Saclay
+Etudiant,Bertrand,Université Paris Nanterre - Université Paris-Saclay - Université de La Réunion - ENS Lyon
+Ecole,Université Paris-Saclay,Jacques - Valentine - Christophe - Bertrand
+Ecole,Université de La Réunion,Bertrand - Christophe - Valentine - Jacques
+Ecole,Université Paris Nanterre,Jacques - Bertrand - Christophe - Valentine
+Ecole,ENS Lyon,Bertrand - Christophe - Valentine - Jacques
+
+Etudiant,Laurence,Université d’Artois - École Polytechnique - Université Paris Dauphine-PSL - Université Grenoble Alpes
+Etudiant,Vincent,Université Grenoble Alpes - Université d’Artois - Université Paris Dauphine-PSL - École Polytechnique
+Etudiant,Audrey,Université d’Artois - École Polytechnique - Université Grenoble Alpes - Université Paris Dauphine-PSL
+Etudiant,Jeannine,École Polytechnique - Université Grenoble Alpes - Université Paris Dauphine-PSL - Université d’Artois
+Ecole,École Polytechnique,Laurence - Jeannine - Vincent - Audrey
+Ecole,Université Grenoble Alpes,Audrey - Vincent - Laurence - Jeannine
+Ecole,Université d’Artois,Vincent - Laurence - Audrey - Jeannine
+Ecole,Université Paris Dauphine-PSL,Laurence - Audrey - Jeannine - Vincent
+
+Etudiant,Julien,Université de Franche-Comté - Université de Technologie de Belfort-Montbéliard (UTBM) - Université de Valenciennes - Université de Rennes 1
+Etudiant,Laetitia,Université de Rennes 1 - Université de Valenciennes - Université de Technologie de Belfort-Montbéliard (UTBM) - Université de Franche-Comté
+Etudiant,Isabelle,Université de Rennes 1 - Université de Valenciennes - Université de Franche-Comté - Université de Technologie de Belfort-Montbéliard (UTBM)
+Etudiant,Aurore,Université de Franche-Comté - Université de Rennes 1 - Université de Valenciennes - Université de Technologie de Belfort-Montbéliard (UTBM)
+Ecole,Université de Franche-Comté,Laetitia - Julien - Aurore - Isabelle
+Ecole,Université de Technologie de Belfort-Montbéliard (UTBM),Aurore - Isabelle - Laetitia - Julien
+Ecole,Université de Rennes 1,Laetitia - Aurore - Isabelle - Julien
+Ecole,Université de Valenciennes,Isabelle - Julien - Laetitia - Aurore
+
+Etudiant,Susanne,Université de Nantes - Télécom Paris - Université de Lille - Université de Caen Normandie - Université du Mans
+Etudiant,Christine,Université de Lille - Université du Mans - Télécom Paris - Université de Caen Normandie - Université de Nantes
+Etudiant,Julien,Université de Nantes - Télécom Paris - Université du Mans - Université de Lille - Université de Caen Normandie
+Etudiant,Diane,Université de Caen Normandie - Télécom Paris - Université du Mans - Université de Lille - Université de Nantes
+Etudiant,Anastasie,Université du Mans - Université de Lille - Université de Nantes - Université de Caen Normandie - Télécom Paris
+Ecole,Université de Lille,Susanne - Christine - Diane - Julien - Anastasie
+Ecole,Université du Mans,Susanne - Anastasie - Diane - Julien - Christine
+Ecole,Télécom Paris,Diane - Anastasie - Julien - Christine - Susanne
+Ecole,Université de Caen Normandie,Susanne - Julien - Anastasie - Christine - Diane
+Ecole,Université de Nantes,Susanne - Julien - Christine - Anastasie - Diane
+
+Etudiant,Raymond,Université de Strasbourg - Université d’Orléans - Université de Nantes - Université Paris 1 Panthéon-Sorbonne - Sciences Po
+Etudiant,Michèle,Université Paris 1 Panthéon-Sorbonne - Université de Nantes - Sciences Po - Université d’Orléans - Université de Strasbourg
+Etudiant,Océane,Sciences Po - Université de Strasbourg - Université d’Orléans - Université Paris 1 Panthéon-Sorbonne - Université de Nantes
+Etudiant,Louis,Université d’Orléans - Université de Nantes - Université Paris 1 Panthéon-Sorbonne - Université de Strasbourg - Sciences Po
+Etudiant,Brigitte,Sciences Po - Université de Strasbourg - Université Paris 1 Panthéon-Sorbonne - Université de Nantes - Université d’Orléans
+Ecole,Université d’Orléans,Raymond - Michèle - Océane - Louis - Brigitte
+Ecole,Sciences Po,Océane - Raymond - Michèle - Louis - Brigitte
+Ecole,Université Paris 1 Panthéon-Sorbonne,Brigitte - Louis - Michèle - Raymond - Océane
+Ecole,Université de Nantes,Océane - Louis - Brigitte - Michèle - Raymond
+Ecole,Université de Strasbourg,Océane - Brigitte - Louis - Michèle - Raymond
+
+Etudiant,Gérard,Université Paris Dauphine-PSL - Université de Montpellier - Université de Lorraine - Université de Perpignan Via Domitia - Université Paris 1 Panthéon-Sorbonne
+Etudiant,Michèle,Université de Montpellier - Université de Lorraine - Université Paris Dauphine-PSL - Université de Perpignan Via Domitia - Université Paris 1 Panthéon-Sorbonne
+Etudiant,Stéphane,Université de Perpignan Via Domitia - Université de Lorraine - Université de Montpellier - Université Paris Dauphine-PSL - Université Paris 1 Panthéon-Sorbonne
+Etudiant,Hélène,Université de Montpellier - Université de Perpignan Via Domitia - Université Paris Dauphine-PSL - Université Paris 1 Panthéon-Sorbonne - Université de Lorraine
+Etudiant,Charlotte,Université Paris 1 Panthéon-Sorbonne - Université de Montpellier - Université de Perpignan Via Domitia - Université de Lorraine - Université Paris Dauphine-PSL
+Ecole,Université de Perpignan Via Domitia,Hélène - Charlotte - Stéphane - Gérard - Michèle
+Ecole,Université Paris Dauphine-PSL,Stéphane - Gérard - Michèle - Charlotte - Hélène
+Ecole,Université de Lorraine,Hélène - Gérard - Charlotte - Stéphane - Michèle
+Ecole,Université Paris 1 Panthéon-Sorbonne,Charlotte - Hélène - Michèle - Stéphane - Gérard
+Ecole,Université de Montpellier,Gérard - Hélène - Charlotte - Stéphane - Michèle
+
+Etudiant,Joseph,Sorbonne Université - EM Lyon - Université de Rennes 1 - Université de Technologie de Troyes (UTT) - Université Clermont Auvergne
+Etudiant,Édith,Université de Rennes 1 - Université Clermont Auvergne - EM Lyon - Université de Technologie de Troyes (UTT) - Sorbonne Université
+Etudiant,Diane,Sorbonne Université - Université de Technologie de Troyes (UTT) - EM Lyon - Université Clermont Auvergne - Université de Rennes 1
+Etudiant,Jeannine,Sorbonne Université - Université de Technologie de Troyes (UTT) - Université Clermont Auvergne - EM Lyon - Université de Rennes 1
+Etudiant,Charlotte,Université de Technologie de Troyes (UTT) - Sorbonne Université - EM Lyon - Université Clermont Auvergne - Université de Rennes 1
+Ecole,Université Clermont Auvergne,Charlotte - Joseph - Diane - Édith - Jeannine
+Ecole,Université de Technologie de Troyes (UTT),Édith - Joseph - Diane - Charlotte - Jeannine
+Ecole,Université de Rennes 1,Charlotte - Joseph - Jeannine - Édith - Diane
+Ecole,EM Lyon,Charlotte - Diane - Jeannine - Joseph - Édith
+Ecole,Sorbonne Université,Charlotte - Diane - Édith - Joseph - Jeannine
+
+Etudiant,Aimé,Université Gustave Eiffel - Université Paris-Est Créteil (UPEC) - Université de Nantes - Université Paris Dauphine-PSL - Université de Rouen Normandie
+Etudiant,Marcel,Université Paris Dauphine-PSL - Université Paris-Est Créteil (UPEC) - Université de Rouen Normandie - Université Gustave Eiffel - Université de Nantes
+Etudiant,Marcelle,Université Paris Dauphine-PSL - Université Paris-Est Créteil (UPEC) - Université de Rouen Normandie - Université Gustave Eiffel - Université de Nantes
+Etudiant,René,Université Paris-Est Créteil (UPEC) - Université Paris Dauphine-PSL - Université de Nantes - Université de Rouen Normandie - Université Gustave Eiffel
+Etudiant,Adrien,Université de Nantes - Université Paris-Est Créteil (UPEC) - Université Paris Dauphine-PSL - Université Gustave Eiffel - Université de Rouen Normandie
+Ecole,Université Paris Dauphine-PSL,Aimé - René - Marcel - Adrien - Marcelle
+Ecole,Université Paris-Est Créteil (UPEC),René - Marcelle - Marcel - Adrien - Aimé
+Ecole,Université de Nantes,Marcelle - Adrien - René - Aimé - Marcel
+Ecole,Université Gustave Eiffel,René - Marcel - Marcelle - Aimé - Adrien
+Ecole,Université de Rouen Normandie,Marcel - Aimé - René - Adrien - Marcelle
+

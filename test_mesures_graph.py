@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import sys, os
+import csv
 
 # Ajout du dossier courant au PATH
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -11,34 +12,35 @@ from mariage_stable_mesure import (
     compute_ranks
 )
 
-def read_instance_bench(filename="instances_benchmark.csv"):
-    """
-    Lit un fichier CSV généré par generate_preference.py
-    et retourne deux dictionnaires :
-      - prefs_students : {étudiant: [écoles...]}
-      - prefs_schools  : {école: [étudiants...]}
-    """
-    prefs_students = {}
-    prefs_schools = {}
+from generate_preference import (
+    generate_preferences,
+    save_to_csv
+)
 
-    with open(filename, "r", encoding="utf-8") as f:
-        reader = csv.reader(f)
-        next(reader)  # sauter l'en-tête
+def save_to_csv_bench(students, schools, prefs_students, prefs_schools, filename="instances_bench_temp.csv"):
+    """Ajoute les préférences dans un fichier CSV sans écraser les données existantes."""
 
-        for row in reader:
-            if not row or len(row) < 3:
-                continue
+    file_exists = os.path.isfile(filename)
 
-            entity_type, name, preferences = row
-            prefs_list = [p.strip() for p in preferences.split(" - ")]
+    with open(filename, "a", newline="", encoding="utf-8") as f:  # "a" = append mode
+        writer = csv.writer(f)
 
-            if entity_type == "Etudiant":
-                prefs_students[name] = prefs_list
-            elif entity_type == "Ecole":
-                prefs_schools[name] = prefs_list
+        # Si le fichier n'existe pas encore → écrire l'en-tête
+        if not file_exists:
+            writer.writerow(["Type", "Nom", "Préférences"])
 
-    return prefs_students, prefs_schools
+        # Étudiants
+        for s in students:
+            writer.writerow(["Etudiant", s, " - ".join(prefs_students[s])])
 
+        # Écoles
+        for e in schools:
+            writer.writerow(["Ecole", e, " - ".join(prefs_schools[e])])
+
+        # Ligne vide entre chaque instance pour lisibilité
+        writer.writerow([])
+
+    print(f"Données ajoutées à '{filename}' avec succès.")
 
 def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
 
@@ -50,18 +52,20 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
     rank_students = []
     rank_schools = []
 
-    welfare_students = []
-    welfare_schools = []
+    #welfare_students = []
+    #welfare_schools = []
 
-    egalitarian_students = []
-    egalitarian_schools = []
+    #egalitarian_students = []
+    #egalitarian_schools = []
+
+    welfare_total = []
+    egalitarian_total = []
 
     for _ in range(nb_tests):
         
-        students, schools, prefs_students, prefs_schools = generate_preferences(n_entites, n_entites)
-        save_to_csv(students, schools, prefs_students, prefs_schools, "instances_bench.csv")
+        students, schools, prefs_students, prefs_schools = generate_preferences(n_students, n_schools)
+        save_to_csv_bench(students, schools, prefs_students, prefs_schools, filename="instances_bench_temp.csv")
 
-        prefs_students, prefs_schools = read_instance_bench(n_students, n_schools)
         # Mariage stable
         engaged = mariage_stable(prefs_students, prefs_schools)
 
@@ -69,31 +73,41 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
         measures = compute_all_measures(prefs_students, prefs_schools, engaged)
 
         # ===== Rang moyen =====
-        +.append(measures["avg_rank_students"])
+        rank_students.append(measures["avg_rank_students"])
         rank_schools.append(measures["avg_rank_schools"])
 
         # ===== Welfare séparé : on decompose le walfare globale pour les etudiants et les etablissements=====
         ranks_stu, ranks_sch = compute_ranks(prefs_students, prefs_schools, engaged)
         n = n_schools - 1
 
-        welfare_students.append(sum(1 - r/n for r in ranks_stu.values()))
-        welfare_schools.append(sum(1 - r/n for r in ranks_sch.values()))
+        #welfare_students.append(sum(1 - r/n for r in ranks_stu.values()))
+        #welfare_schools.append(sum(1 - r/n for r in ranks_sch.values()))
+
+        welfare = sum(1 - r/n for r in ranks_stu.values()) + sum(1 - r/n for r in ranks_sch.values())
+        welfare_total.append(welfare)
 
         # ===== Egalitarian cost séparé: on separe aussi  =====
-        egalitarian_students.append(sum(ranks_stu.values()))
-        egalitarian_schools.append(sum(ranks_sch.values()))
+        #egalitarian_students.append(sum(ranks_stu.values()))
+        #egalitarian_schools.append(sum(ranks_sch.values()))
 
+        egalitarian = sum(ranks_stu.values()) + sum(ranks_sch.values())
+        egalitarian_total.append(egalitarian)
+    
+    
     tests = np.arange(1, nb_tests+1)
     bar_width = 0.35  # largeur des barres
 
     mean_rank_stu = np.mean(rank_students)
     mean_rank_sch = np.mean(rank_schools)
 
-    mean_welfare_stu = np.mean(welfare_students)
-    mean_welfare_sch = np.mean(welfare_schools)
+    #mean_welfare_stu = np.mean(welfare_students)
+    #mean_welfare_sch = np.mean(welfare_schools)
 
-    mean_egal_stu = np.mean(egalitarian_students)
-    mean_egal_sch = np.mean(egalitarian_schools)
+    #mean_egal_stu = np.mean(egalitarian_students)
+    #mean_egal_sch = np.mean(egalitarian_schools)
+
+    mean_welfare_total = np.mean(welfare_total)
+    mean_egalitarian_total = np.mean(egalitarian_total)
 
 
     # =================================================================
@@ -135,18 +149,24 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
     fig2, ax2 = plt.subplots(figsize=(7, 3.5))
 
     # Fusion données
-    welfare_students_extended = welfare_students + [mean_welfare_stu]
-    welfare_schools_extended  = welfare_schools  + [mean_welfare_sch]
+    #welfare_students_extended = welfare_students + [mean_welfare_stu]
+    #welfare_schools_extended  = welfare_schools  + [mean_welfare_sch]
+
+    welfare_total_extended = welfare_total + [mean_welfare_total]
+
 
     labels_welfare = [i for i in tests] + ["Moyenne"]
     pos = np.arange(len(labels_welfare))
 
     # Barres normales (tests)
-    bars_students = ax2.bar(pos - bar_width/2, welfare_students_extended, width=bar_width, label="Étudiants")
-    bars_schools  = ax2.bar(pos + bar_width/2, welfare_schools_extended,  width=bar_width, label="Écoles")
+    #bars_students = ax2.bar(pos - bar_width/2, welfare_students_extended, width=bar_width, label="Étudiants")
+    #bars_schools  = ax2.bar(pos + bar_width/2, welfare_schools_extended,  width=bar_width, label="Écoles")
 
-    bars_students[-1].set_color("tab:green")   # barres Étudiants moyenne
-    bars_schools[-1].set_color("tab:red")      # barres Écoles moyenne
+    #bars_students[-1].set_color("tab:green")   # barres Étudiants moyenne
+    #bars_schools[-1].set_color("tab:red")      # barres Écoles moyenne
+
+    bars_welfare = ax2.bar(pos, welfare_total_extended, color="tab:blue", width=bar_width)
+    bars_welfare[-1].set_color("tab:green")
 
     ax2.set_xticks(pos)
     ax2.set_xticklabels(labels_welfare, rotation=45)
@@ -160,25 +180,29 @@ def test_measures_with_graphs(nb_tests=20, n_students=15, n_schools=15):
 
 
 
-        # =================================================================
+    # =================================================================
     # HISTOGRAMME : Coût égalitaire (tests + moyenne)
     # =================================================================
     fig3, ax3 = plt.subplots(figsize=(7, 3.5))
 
-    egalitarian_students_extended = egalitarian_students + [mean_egal_stu]
-    egalitarian_schools_extended  = egalitarian_schools  + [mean_egal_sch]
+    #egalitarian_students_extended = egalitarian_students + [mean_egal_stu]
+    #egalitarian_schools_extended  = egalitarian_schools  + [mean_egal_sch]
+
+    egalitarian_total_extended = egalitarian_total + [mean_egalitarian_total]
+
 
     labels_egal = [i for i in tests] + ["Moyenne"]
     pos_egal = np.arange(len(labels_egal))
 
-    bars_egal_students = ax3.bar(pos_egal - bar_width/2, egalitarian_students_extended,
-                                 width=bar_width, label="Étudiants")
-    bars_egal_schools  = ax3.bar(pos_egal + bar_width/2, egalitarian_schools_extended,
-                                 width=bar_width, label="Écoles")
+    #bars_egal_students = ax3.bar(pos_egal - bar_width/2, egalitarian_students_extended, width=bar_width, label="Étudiants")
+    #bars_egal_schools  = ax3.bar(pos_egal + bar_width/2, egalitarian_schools_extended, width=bar_width, label="Écoles")
 
     # COLORATION des deux barres "Moyenne"
-    bars_egal_students[-1].set_color("tab:green")   # Étudiants (moyenne)
-    bars_egal_schools[-1].set_color("tab:red")      # Écoles (moyenne)
+    #bars_egal_students[-1].set_color("tab:green")   # Étudiants (moyenne)
+    #bars_egal_schools[-1].set_color("tab:red")      # Écoles (moyenne)
+
+    bars_egal = ax3.bar(pos_egal, egalitarian_total_extended, color="tab:orange", width=bar_width)
+    bars_egal[-1].set_color("tab:red")
 
     ax3.set_xticks(pos_egal)
     ax3.set_xticklabels(labels_egal, rotation=45)
