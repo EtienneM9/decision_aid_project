@@ -32,6 +32,18 @@ if 'bench_data' not in st.session_state:
 if 'current_bench_index' not in st.session_state:
     st.session_state['current_bench_index'] = 0
 
+# Initialisation des variables de résultats pour la persistance
+if "engaged_final" not in st.session_state:
+    st.session_state["engaged_final"] = None
+if "results" not in st.session_state:
+    st.session_state["results"] = None
+if "figures" not in st.session_state:
+    st.session_state["figures"] = None
+if "prefs_students" not in st.session_state:
+    st.session_state["prefs_students"] = None
+if "prefs_schools" not in st.session_state:
+    st.session_state["prefs_schools"] = None
+
 # ============================================================
 # FONCTIONS UTILITAIRES
 # ============================================================
@@ -48,31 +60,25 @@ def parse_benchmark_csv(filename):
     current_students = {}
     current_schools = {}
     
-    # On itère sur les lignes. On détecte une nouvelle instance si on retombe sur "Etudiant"
-    # alors qu'on avait déjà commencé à remplir des écoles pour l'instance précédente.
     processing_schools = False
 
     for _, row in df.iterrows():
         row_type = row['Type'].strip()
         name = row['Nom'].strip()
-        # Séparation des préférences (séparateur " - ")
         prefs = [p.strip() for p in str(row['Préférences']).split('-')]
 
         if row_type == 'Etudiant':
             if processing_schools:
-                # On a fini l'instance précédente, on sauvegarde et on reset
                 instances.append((current_students, current_schools))
                 current_students = {}
                 current_schools = {}
                 processing_schools = False
-            
             current_students[name] = prefs
         
         elif row_type == 'Ecole':
             processing_schools = True
             current_schools[name] = prefs
 
-    # Ne pas oublier d'ajouter la dernière instance en cours de lecture
     if current_students and current_schools:
         instances.append((current_students, current_schools))
         
@@ -99,9 +105,7 @@ start_btn = st.sidebar.button("Générer et exécuter l'algorithme")
 st.sidebar.markdown("---")
 st.sidebar.header("Visualiseur Benchmark")
 
-# Bouton pour charger/ouvrir le visualiseur
 if st.sidebar.button("📂 Charger instances benchmark"):
-    # Chargement des données
     instances = parse_benchmark_csv("instances_bench_temp.csv")
     if instances:
         st.session_state['bench_data'] = instances
@@ -109,9 +113,8 @@ if st.sidebar.button("📂 Charger instances benchmark"):
         st.session_state['current_bench_index'] = 0
         st.sidebar.success(f"{len(instances)} instances chargées !")
     else:
-        st.sidebar.warning("Aucune instance trouvée ou fichier vide (lancez une simulation d'abord).")
+        st.sidebar.warning("Aucune instance trouvée (lancez une simulation d'abord).")
 
-# Contrôles de navigation (si visualiseur actif)
 if st.session_state['bench_viewer_active'] and st.session_state['bench_data']:
     col_nav1, col_nav2, col_nav3 = st.sidebar.columns([1, 1, 1])
     
@@ -128,7 +131,6 @@ if st.session_state['bench_viewer_active'] and st.session_state['bench_data']:
             if st.session_state['current_bench_index'] < len(st.session_state['bench_data']) - 1:
                 st.session_state['current_bench_index'] += 1
 
-    # Bouton Fermer (Croix)
     if st.sidebar.button("❌ Fermer l'affichage"):
         st.session_state['bench_viewer_active'] = False
         st.rerun()
@@ -141,12 +143,10 @@ if st.session_state['bench_viewer_active'] and st.session_state['bench_data']:
     st.markdown("---")
     st.subheader(f"🔍 Visualiseur d'instance Benchmark n°{st.session_state['current_bench_index'] + 1}")
     
-    # Récupération de l'instance courante
     curr_students, curr_schools = st.session_state['bench_data'][st.session_state['current_bench_index']]
     
     col_v1, col_v2 = st.columns(2)
     with col_v1:
-        # Affichage Étudiants
         st.markdown("#### 👩‍🎓 Préférences Étudiants")
         df_students = pd.DataFrame([
             {"Nom": name, "Préférences": " → ".join(prefs)} 
@@ -155,7 +155,6 @@ if st.session_state['bench_viewer_active'] and st.session_state['bench_data']:
         st.table(df_students)
     
     with col_v2:
-        # Affichage Écoles
         st.markdown("#### 🏫 Préférences Écoles")
         df_schools = pd.DataFrame([
             {"Nom": name, "Préférences": " → ".join(prefs)} 
@@ -181,7 +180,6 @@ def mariage_stable_animated(pref_student, pref_school, speed=0.5):
         current_student = free_students[0]
         next_school = None
 
-        # trouve la prochaine école à laquelle proposer
         for school in pref_student[current_student]:
             if school not in proposals[current_student]:
                 next_school = school
@@ -194,19 +192,16 @@ def mariage_stable_animated(pref_student, pref_school, speed=0.5):
         proposals[current_student].append(next_school)
         current_eng = engaged[next_school]
 
-        # affichage de l'étape
         with steps_container:
             st.markdown(f"### Étape {step}")
             st.markdown(f"👩‍🎓 **{current_student}** propose à 🏫 **{next_school}**")
 
-        # cas 1 : école libre → accepte
         if current_eng is None:
             engaged[next_school] = current_student
             free_students.pop(0)
             with steps_container:
                 st.success(f"✅ {next_school} accepte temporairement {current_student}")
         else:
-            # compare préférences
             rank_new = pref_school[next_school].index(current_student)
             rank_old = pref_school[next_school].index(current_eng)
             if rank_new < rank_old:
@@ -219,7 +214,6 @@ def mariage_stable_animated(pref_student, pref_school, speed=0.5):
                 with steps_container:
                     st.error(f"❌ {next_school} rejette {current_student} (préférence pour {current_eng})")
 
-        # état courant
         with steps_container:
             st.markdown("#### Engagements actuels :")
             df = pd.DataFrame([{"École": e, "Étudiant affecté": engaged[e] or "—"} for e in engaged])
@@ -233,45 +227,74 @@ def mariage_stable_animated(pref_student, pref_school, speed=0.5):
 
 
 # ============================================================
-# EXÉCUTION DE LA SIMULATION (Partie standard)
+# EXÉCUTION DE LA SIMULATION (CALCUL)
 # ============================================================
 if start_btn:
     st.empty()  # vide les conteneurs précédents
-
     st.info("Simulation en cours...")
 
-    # Génération aléatoire (Instance unique pour l'animation)
+    # 1. Génération Instance Unique
     students, schools, prefs_students, prefs_schools = generate_preferences(n_entites, n_entites)
     save_to_csv(students, schools, prefs_students, prefs_schools, "instance_temp.csv")
+    
+    # Sauvegarde dans le state pour affichage persistant
+    st.session_state["prefs_students"] = prefs_students
+    st.session_state["prefs_schools"] = prefs_schools
 
+    # 2. Animation (s'affiche en direct)
+    st.subheader("Déroulement pas à pas")
+    # On affiche les préférences juste pour l'animation
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("#### 👩‍🎓 Étudiants → Écoles")
-        st.dataframe(
-            pd.DataFrame([{"Étudiant": s, "Préférences": " → ".join(prefs_students[s])} for s in prefs_students])
-        )
+        st.dataframe(pd.DataFrame([{"Étudiant": s, "Préférences": " → ".join(prefs_students[s])} for s in prefs_students]))
     with col2:
-        st.markdown("#### 🏫 Écoles → Étudiants")
-        st.dataframe(
-            pd.DataFrame([{"École": e, "Préférences": " → ".join(prefs_schools[e])} for e in prefs_schools])
-        )
-
-    st.markdown("---")
-    st.subheader("Déroulement pas à pas")
-    engaged = mariage_stable_animated(prefs_students, prefs_schools, speed)
-
-    # ============================================================
-    # MESURES FINALES
-    # ============================================================
-    st.subheader("Résultat final du mariage stable")
-    engaged_final = engaged  
+        st.dataframe(pd.DataFrame([{"École": e, "Préférences": " → ".join(prefs_schools[e])} for e in prefs_schools]))
     
-    st.table(pd.DataFrame([{"École": e, "Étudiant affecté": engaged_final[e]} for e in engaged_final]))
-
+    engaged = mariage_stable_animated(prefs_students, prefs_schools, speed)
+    
+    # 3. Calculs finaux Instance Unique
     results = compute_all_measures(prefs_students, prefs_schools, engaged)
-
-    st.session_state["engaged_final"] = engaged_final
+    st.session_state["engaged_final"] = engaged
     st.session_state["results"] = results
+
+    # 4. Calculs Benchmark (Graphiques)
+    # Réinitialisation du fichier benchmark pour éviter l'accumulation
+    if os.path.exists("instances_bench_temp.csv"):
+        try:
+            os.remove("instances_bench_temp.csv")
+        except Exception as e:
+            st.warning(f"Attention : Impossible de réinitialiser le fichier benchmark ({e})")
+
+    with st.spinner("Génération des graphiques (Benchmark)..."):
+        fig1, fig2, fig3 = test_measures_with_graphs(
+            nb_tests=nb_tests,
+            n_students=n_entites,
+            n_schools=n_entites
+        )
+        st.session_state["figures"] = (fig1, fig2, fig3)
+    
+    st.success("✅ Simulation terminée !")
+    # On fait un petit rerun pour nettoyer l'affichage de l'animation et afficher le résultat propre
+    # ou on laisse couler vers le bloc d'affichage ci-dessous.
+    # Pour garder l'animation visible juste après le run, on ne fait pas de rerun forcé ici.
+
+
+# ============================================================
+# AFFICHAGE DES RÉSULTATS (PERSISTANT)
+# ============================================================
+# Ce bloc s'exécute si des résultats sont présents en mémoire,
+# même si start_btn est False (ex: après avoir fermé le visualiseur).
+
+if st.session_state["engaged_final"] is not None and st.session_state["results"] is not None:
+    
+    engaged_final = st.session_state["engaged_final"]
+    results = st.session_state["results"]
+    
+    st.markdown("---")
+    st.subheader("Résultat final du mariage stable")
+    
+    # Affichage des appariements
+    st.table(pd.DataFrame([{"École": e, "Étudiant affecté": engaged_final[e]} for e in engaged_final]))
 
     st.markdown("### 📊 Mesures globales de satisfaction")
 
@@ -293,57 +316,32 @@ if start_btn:
         pareto_text = "✅ Oui" if results["pareto_optimal"] else "❌ Non"
         st.metric("Pareto-optimalité", pareto_text)
 
-
     # ============================================================
-    # VISUALISATION MULTIPLE — VERSION HISTOGRAMMES
+    # VISUALISATION MULTIPLE (GRAPHIQUES STOCKÉS)
     # ============================================================
-    st.markdown("---")
-    st.subheader("📊 Analyse sur plusieurs instances (tests aléatoires)")
+    if st.session_state["figures"]:
+        st.markdown("---")
+        st.subheader("📊 Analyse sur plusieurs instances (tests aléatoires)")
+        
+        fig1, fig2, fig3 = st.session_state["figures"]
+        st.pyplot(fig1)
+        st.pyplot(fig2)
+        st.pyplot(fig3)
 
-    # --- MODIFICATION ICI : Réinitialisation du fichier benchmark ---
-    # On supprime le fichier 'instances_bench_temp.csv' s'il existe déjà
-    # pour ne pas accumuler les anciennes préférences avec les nouvelles.
-    if os.path.exists("instances_bench_temp.csv"):
-        try:
-            os.remove("instances_bench_temp.csv")
-        except Exception as e:
-            st.warning(f"Attention : Impossible de réinitialiser le fichier benchmark ({e})")
-    # ----------------------------------------------------------------
+        # Préparation ZIP pour téléchargement
+        zip_buffer = io.BytesIO()
+        with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zip_file:
+            for i, (fig, name) in enumerate(zip(
+                [fig1, fig2, fig3],
+                ["rang_moyen.png", "welfare.png", "cout_egalitaire.png"]
+            )):
+                buf = io.BytesIO()
+                fig.savefig(buf, format="png", dpi=300, bbox_inches="tight")
+                zip_file.writestr(name, buf.getvalue())
+        zip_buffer.seek(0)
 
-    with st.spinner("Génération des graphiques..."):
-        fig1, fig2, fig3 = test_measures_with_graphs(
-            nb_tests=nb_tests,
-            n_students=n_entites,
-            n_schools=n_entites
-        )
-
-    st.pyplot(fig1)
-    st.pyplot(fig2)
-    st.pyplot(fig3)
-
-    st.success("✅ Histogrammes générés avec succès !")
-
-    zip_buffer = io.BytesIO()
-
-    with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zip_file:
-        for i, (fig, name) in enumerate(zip(
-            [fig1, fig2, fig3],
-            ["rang_moyen.png", "welfare.png", "cout_egalitaire.png"]
-        )):
-            buf = io.BytesIO()
-            fig.savefig(buf, format="png", dpi=300, bbox_inches="tight")
-            zip_file.writestr(name, buf.getvalue())
-
-    # pour fermer le ZIP et prépare le téléchargement
-    zip_buffer.seek(0)
-
-    st.write("---")
-    st.markdown("#### Exporter les résultats")
-
-    # Récupère les résultats sauvegardés
-    if "engaged_final" in st.session_state:
-        engaged_final = st.session_state["engaged_final"]
-        results = st.session_state["results"]
+        st.write("---")
+        st.markdown("#### Exporter les résultats")
 
         # ===============================
         # CSV des appariements finaux
@@ -388,9 +386,6 @@ if start_btn:
             '📦 Télécharger les 3 graphiques (.zip)</a>'
         )
 
-        # ===============================
-        # Affichage des trois boutons horizontaux
-        # ===============================
         html_block = f"""
         <div style="text-align:center;">
             {href_result}
@@ -400,6 +395,5 @@ if start_btn:
         """
         st.markdown(html_block, unsafe_allow_html=True)
 
-else:
-    if not st.session_state.get('bench_viewer_active', False):
-        st.info("👉 Choisis les paramètres à gauche puis clique sur **Générer et exécuter l'algorithme**.")
+elif not start_btn and not st.session_state.get('bench_viewer_active', False):
+    st.info("👉 Choisis les paramètres à gauche puis clique sur **Générer et exécuter l'algorithme**.")

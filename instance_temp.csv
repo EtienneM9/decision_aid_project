@@ -1,12 +1,12 @@
 Type,Nom,Préférences
-Etudiant,André,Université de Rennes 1 - Télécom Paris - Université de Technologie de Compiègne (UTC) - Université de Pau et des Pays de l’Adour - Université Paris-Saclay
-Etudiant,Guy,Université de Technologie de Compiègne (UTC) - Université de Pau et des Pays de l’Adour - Université Paris-Saclay - Université de Rennes 1 - Télécom Paris
-Etudiant,David,Université de Rennes 1 - Université Paris-Saclay - Télécom Paris - Université de Technologie de Compiègne (UTC) - Université de Pau et des Pays de l’Adour
-Etudiant,Victor,Université de Pau et des Pays de l’Adour - Université Paris-Saclay - Université de Technologie de Compiègne (UTC) - Télécom Paris - Université de Rennes 1
-Etudiant,Stéphane,Université Paris-Saclay - Université de Rennes 1 - Université de Pau et des Pays de l’Adour - Télécom Paris - Université de Technologie de Compiègne (UTC)
+Etudiant,Arnaude,Université de Nantes - Université d’Angers - HEC Paris - Université de Valenciennes - Université de Lorraine
+Etudiant,Éric,Université de Valenciennes - HEC Paris - Université d’Angers - Université de Lorraine - Université de Nantes
+Etudiant,Aimé,HEC Paris - Université d’Angers - Université de Lorraine - Université de Nantes - Université de Valenciennes
+Etudiant,Michelle,Université d’Angers - Université de Nantes - Université de Lorraine - HEC Paris - Université de Valenciennes
+Etudiant,Bernadette,Université de Valenciennes - Université de Lorraine - HEC Paris - Université d’Angers - Université de Nantes
 
-Ecole,Université de Rennes 1,André - Stéphane - Victor - Guy - David
-Ecole,Télécom Paris,David - Stéphane - Guy - Victor - André
-Ecole,Université Paris-Saclay,Victor - David - André - Stéphane - Guy
-Ecole,Université de Pau et des Pays de l’Adour,Victor - David - André - Guy - Stéphane
-Ecole,Université de Technologie de Compiègne (UTC),André - Stéphane - Guy - Victor - David
+Ecole,Université d’Angers,Arnaude - Michelle - Bernadette - Aimé - Éric
+Ecole,Université de Lorraine,Aimé - Éric - Michelle - Bernadette - Arnaude
+Ecole,Université de Nantes,Arnaude - Bernadette - Michelle - Éric - Aimé
+Ecole,Université de Valenciennes,Éric - Bernadette - Aimé - Arnaude - Michelle
+Ecole,HEC Paris,Aimé - Bernadette - Arnaude - Michelle - Éric

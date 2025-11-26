@@ -1,56 +1,56 @@
 Type,Nom,Préférences
-Etudiant,André,ENSAE Paris - ENS Lyon - CentraleSupélec - Université de Poitiers - Université Paris-Est Créteil (UPEC)
-Etudiant,Capucine,Université de Poitiers - Université Paris-Est Créteil (UPEC) - CentraleSupélec - ENS Lyon - ENSAE Paris
-Etudiant,Isabelle,Université de Poitiers - Université Paris-Est Créteil (UPEC) - ENS Lyon - CentraleSupélec - ENSAE Paris
-Etudiant,Constance,ENSAE Paris - CentraleSupélec - Université Paris-Est Créteil (UPEC) - Université de Poitiers - ENS Lyon
-Etudiant,Élodie,Université Paris-Est Créteil (UPEC) - ENSAE Paris - ENS Lyon - CentraleSupélec - Université de Poitiers
-Ecole,CentraleSupélec,Constance - André - Isabelle - Élodie - Capucine
-Ecole,Université Paris-Est Créteil (UPEC),André - Élodie - Capucine - Isabelle - Constance
-Ecole,Université de Poitiers,André - Capucine - Isabelle - Constance - Élodie
-Ecole,ENSAE Paris,Élodie - Constance - Capucine - Isabelle - André
-Ecole,ENS Lyon,Capucine - Élodie - André - Isabelle - Constance
+Etudiant,Xavier,Université de Montpellier - Télécom Paris - Université de Caen Normandie - Sciences Po - ENSAE Paris
+Etudiant,Paulette,ENSAE Paris - Université de Montpellier - Sciences Po - Télécom Paris - Université de Caen Normandie
+Etudiant,Michelle,Sciences Po - Télécom Paris - Université de Caen Normandie - ENSAE Paris - Université de Montpellier
+Etudiant,Juliette,Télécom Paris - Sciences Po - ENSAE Paris - Université de Montpellier - Université de Caen Normandie
+Etudiant,Sabine,Université de Caen Normandie - Sciences Po - Université de Montpellier - Télécom Paris - ENSAE Paris
+Ecole,Université de Montpellier,Paulette - Michelle - Sabine - Xavier - Juliette
+Ecole,Université de Caen Normandie,Xavier - Paulette - Juliette - Michelle - Sabine
+Ecole,Sciences Po,Sabine - Paulette - Xavier - Juliette - Michelle
+Ecole,ENSAE Paris,Sabine - Michelle - Juliette - Paulette - Xavier
+Ecole,Télécom Paris,Sabine - Juliette - Paulette - Michelle - Xavier
 
-Etudiant,Frédérique,Université d’Angers - Université de Poitiers - HEC Paris - Université de Nantes - Sorbonne Université
-Etudiant,Jacqueline,Université de Poitiers - Université de Nantes - HEC Paris - Sorbonne Université - Université d’Angers
-Etudiant,Pauline,Université d’Angers - Sorbonne Université - HEC Paris - Université de Nantes - Université de Poitiers
-Etudiant,Richard,HEC Paris - Université d’Angers - Sorbonne Université - Université de Nantes - Université de Poitiers
-Etudiant,Alfred,Université de Poitiers - HEC Paris - Sorbonne Université - Université d’Angers - Université de Nantes
-Ecole,HEC Paris,Jacqueline - Pauline - Richard - Frédérique - Alfred
-Ecole,Université de Poitiers,Frédérique - Richard - Alfred - Pauline - Jacqueline
-Ecole,Université d’Angers,Frédérique - Alfred - Richard - Jacqueline - Pauline
-Ecole,Université de Nantes,Alfred - Frédérique - Richard - Jacqueline - Pauline
-Ecole,Sorbonne Université,Richard - Alfred - Frédérique - Pauline - Jacqueline
+Etudiant,Henri,Université de Pau et des Pays de l’Adour - Université de Montpellier - ESSEC Business School - Sciences Po - Université Paris 8 Vincennes-Saint-Denis
+Etudiant,Xavier,Sciences Po - ESSEC Business School - Université de Montpellier - Université Paris 8 Vincennes-Saint-Denis - Université de Pau et des Pays de l’Adour
+Etudiant,Lorraine,Université de Montpellier - Sciences Po - ESSEC Business School - Université Paris 8 Vincennes-Saint-Denis - Université de Pau et des Pays de l’Adour
+Etudiant,Marianne,ESSEC Business School - Sciences Po - Université de Pau et des Pays de l’Adour - Université de Montpellier - Université Paris 8 Vincennes-Saint-Denis
+Etudiant,Timothée,ESSEC Business School - Université de Montpellier - Sciences Po - Université de Pau et des Pays de l’Adour - Université Paris 8 Vincennes-Saint-Denis
+Ecole,Université de Pau et des Pays de l’Adour,Marianne - Timothée - Lorraine - Henri - Xavier
+Ecole,Sciences Po,Timothée - Lorraine - Marianne - Henri - Xavier
+Ecole,ESSEC Business School,Timothée - Lorraine - Xavier - Marianne - Henri
+Ecole,Université de Montpellier,Xavier - Timothée - Lorraine - Henri - Marianne
+Ecole,Université Paris 8 Vincennes-Saint-Denis,Henri - Timothée - Xavier - Marianne - Lorraine
 
-Etudiant,Laurent,Université de Nice - Côte d’Azur - Université de Technologie de Troyes (UTT) - Université de Rennes 1 - Université de Strasbourg - Université de Reims Champagne-Ardenne
-Etudiant,Jules,Université de Strasbourg - Université de Rennes 1 - Université de Nice - Côte d’Azur - Université de Reims Champagne-Ardenne - Université de Technologie de Troyes (UTT)
-Etudiant,Agathe,Université de Rennes 1 - Université de Reims Champagne-Ardenne - Université de Nice - Côte d’Azur - Université de Technologie de Troyes (UTT) - Université de Strasbourg
-Etudiant,Philippe,Université de Strasbourg - Université de Rennes 1 - Université de Nice - Côte d’Azur - Université de Technologie de Troyes (UTT) - Université de Reims Champagne-Ardenne
-Etudiant,Thierry,Université de Reims Champagne-Ardenne - Université de Strasbourg - Université de Technologie de Troyes (UTT) - Université de Rennes 1 - Université de Nice - Côte d’Azur
-Ecole,Université de Reims Champagne-Ardenne,Laurent - Agathe - Philippe - Thierry - Jules
-Ecole,Université de Rennes 1,Jules - Laurent - Agathe - Thierry - Philippe
-Ecole,Université de Technologie de Troyes (UTT),Laurent - Agathe - Philippe - Jules - Thierry
-Ecole,Université de Strasbourg,Agathe - Jules - Laurent - Thierry - Philippe
-Ecole,Université de Nice - Côte d’Azur,Laurent - Philippe - Agathe - Thierry - Jules
+Etudiant,Alex,ESSEC Business School - Université de Nantes - Université d’Orléans - Université d’Évry-Val-d’Essonne - Université Paris-Saclay
+Etudiant,Luc,Université d’Évry-Val-d’Essonne - Université Paris-Saclay - Université d’Orléans - Université de Nantes - ESSEC Business School
+Etudiant,Amélie,Université d’Orléans - ESSEC Business School - Université de Nantes - Université d’Évry-Val-d’Essonne - Université Paris-Saclay
+Etudiant,Hortense,Université d’Évry-Val-d’Essonne - Université d’Orléans - ESSEC Business School - Université Paris-Saclay - Université de Nantes
+Etudiant,Christiane,Université Paris-Saclay - ESSEC Business School - Université d’Évry-Val-d’Essonne - Université d’Orléans - Université de Nantes
+Ecole,ESSEC Business School,Hortense - Luc - Christiane - Alex - Amélie
+Ecole,Université de Nantes,Alex - Christiane - Hortense - Amélie - Luc
+Ecole,Université Paris-Saclay,Hortense - Amélie - Alex - Christiane - Luc
+Ecole,Université d’Évry-Val-d’Essonne,Amélie - Alex - Luc - Christiane - Hortense
+Ecole,Université d’Orléans,Hortense - Luc - Alex - Christiane - Amélie
 
-Etudiant,Alex,HEC Paris - Université de Nantes - Université de La Réunion - Université de Strasbourg - Université de Bordeaux
-Etudiant,Margot,Université de La Réunion - Université de Strasbourg - Université de Bordeaux - HEC Paris - Université de Nantes
-Etudiant,Élisabeth,HEC Paris - Université de La Réunion - Université de Strasbourg - Université de Nantes - Université de Bordeaux
-Etudiant,Luc,Université de Strasbourg - Université de Nantes - Université de Bordeaux - HEC Paris - Université de La Réunion
-Etudiant,Susan,HEC Paris - Université de Bordeaux - Université de Nantes - Université de Strasbourg - Université de La Réunion
-Ecole,Université de La Réunion,Alex - Margot - Élisabeth - Luc - Susan
-Ecole,Université de Nantes,Luc - Élisabeth - Alex - Margot - Susan
-Ecole,Université de Strasbourg,Élisabeth - Luc - Margot - Susan - Alex
-Ecole,HEC Paris,Élisabeth - Susan - Margot - Alex - Luc
-Ecole,Université de Bordeaux,Luc - Margot - Susan - Alex - Élisabeth
+Etudiant,Brigitte,Université Clermont Auvergne - Université de Franche-Comté - Université de Valenciennes - Université de Pau et des Pays de l’Adour - Université Paris-Saclay
+Etudiant,Anne,Université de Franche-Comté - Université de Pau et des Pays de l’Adour - Université Clermont Auvergne - Université de Valenciennes - Université Paris-Saclay
+Etudiant,Gilbert,Université Clermont Auvergne - Université de Valenciennes - Université de Pau et des Pays de l’Adour - Université Paris-Saclay - Université de Franche-Comté
+Etudiant,Eugène,Université de Franche-Comté - Université Clermont Auvergne - Université Paris-Saclay - Université de Valenciennes - Université de Pau et des Pays de l’Adour
+Etudiant,Claudine,Université de Pau et des Pays de l’Adour - Université Clermont Auvergne - Université de Franche-Comté - Université de Valenciennes - Université Paris-Saclay
+Ecole,Université de Pau et des Pays de l’Adour,Gilbert - Eugène - Brigitte - Claudine - Anne
+Ecole,Université Paris-Saclay,Brigitte - Anne - Gilbert - Claudine - Eugène
+Ecole,Université de Franche-Comté,Brigitte - Eugène - Anne - Claudine - Gilbert
+Ecole,Université Clermont Auvergne,Eugène - Anne - Brigitte - Gilbert - Claudine
+Ecole,Université de Valenciennes,Gilbert - Eugène - Claudine - Anne - Brigitte
 
-Etudiant,François,Université de Bordeaux - Université de Reims Champagne-Ardenne - Université Paris Nanterre - École Polytechnique - Université de Technologie de Compiègne (UTC)
-Etudiant,Émilie,Université de Reims Champagne-Ardenne - École Polytechnique - Université de Technologie de Compiègne (UTC) - Université Paris Nanterre - Université de Bordeaux
-Etudiant,Véronique,École Polytechnique - Université Paris Nanterre - Université de Bordeaux - Université de Technologie de Compiègne (UTC) - Université de Reims Champagne-Ardenne
-Etudiant,Renée,Université Paris Nanterre - École Polytechnique - Université de Bordeaux - Université de Technologie de Compiègne (UTC) - Université de Reims Champagne-Ardenne
-Etudiant,Marianne,Université de Reims Champagne-Ardenne - Université de Technologie de Compiègne (UTC) - Université Paris Nanterre - École Polytechnique - Université de Bordeaux
-Ecole,Université Paris Nanterre,Marianne - Émilie - François - Renée - Véronique
-Ecole,Université de Technologie de Compiègne (UTC),Renée - Émilie - Marianne - François - Véronique
-Ecole,Université de Bordeaux,Émilie - François - Marianne - Renée - Véronique
-Ecole,École Polytechnique,François - Émilie - Véronique - Renée - Marianne
-Ecole,Université de Reims Champagne-Ardenne,Renée - François - Émilie - Véronique - Marianne
+Etudiant,Claude,Université de Caen Normandie - Université Paris 8 Vincennes-Saint-Denis - Université d’Artois - ENS Lyon - Université Clermont Auvergne
+Etudiant,Margaud,Université Paris 8 Vincennes-Saint-Denis - ENS Lyon - Université Clermont Auvergne - Université de Caen Normandie - Université d’Artois
+Etudiant,Alain,Université Clermont Auvergne - Université d’Artois - Université Paris 8 Vincennes-Saint-Denis - ENS Lyon - Université de Caen Normandie
+Etudiant,Hortense,ENS Lyon - Université d’Artois - Université Paris 8 Vincennes-Saint-Denis - Université Clermont Auvergne - Université de Caen Normandie
+Etudiant,Nicolas,Université Clermont Auvergne - Université Paris 8 Vincennes-Saint-Denis - Université d’Artois - ENS Lyon - Université de Caen Normandie
+Ecole,Université Clermont Auvergne,Alain - Margaud - Nicolas - Claude - Hortense
+Ecole,ENS Lyon,Alain - Nicolas - Margaud - Claude - Hortense
+Ecole,Université Paris 8 Vincennes-Saint-Denis,Nicolas - Hortense - Margaud - Alain - Claude
+Ecole,Université de Caen Normandie,Nicolas - Hortense - Alain - Margaud - Claude
+Ecole,Université d’Artois,Nicolas - Hortense - Alain - Claude - Margaud
 
