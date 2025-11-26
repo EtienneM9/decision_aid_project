@@ -23,6 +23,21 @@ st.set_page_config(
 )
 
 # ============================================================
+# CSS POUR L'EFFET DE FLOU (BLUR)
+# ============================================================
+st.markdown(
+    """
+    <style>
+    div[data-testid="stDialog"] {
+        backdrop-filter: blur(5px) !important;
+        background-color: rgba(0, 0, 0, 0.4) !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# ============================================================
 # GESTION DU STATE (Sessions)
 # ============================================================
 if 'bench_viewer_active' not in st.session_state:
@@ -43,13 +58,15 @@ if "prefs_students" not in st.session_state:
     st.session_state["prefs_students"] = None
 if "prefs_schools" not in st.session_state:
     st.session_state["prefs_schools"] = None
+if "simulation_history" not in st.session_state:
+    st.session_state["simulation_history"] = []  # Pour stocker les logs de l'animation
 
 # ============================================================
 # FONCTIONS UTILITAIRES
 # ============================================================
 
 def parse_benchmark_csv(filename):
-    """Lit le CSV et retourne une liste d'instances (tuples students_pref, schools_pref)."""
+    """Lit le CSV et retourne une liste d'instances."""
     try:
         df = pd.read_csv(filename)
     except FileNotFoundError:
@@ -59,7 +76,6 @@ def parse_benchmark_csv(filename):
     instances = []
     current_students = {}
     current_schools = {}
-    
     processing_schools = False
 
     for _, row in df.iterrows():
@@ -84,6 +100,82 @@ def parse_benchmark_csv(filename):
         
     return instances
 
+def render_history_log():
+    """Réaffiche l'historique de la simulation stocké en mémoire."""
+    if st.session_state["simulation_history"]:
+        st.subheader("Déroulement pas à pas (Historique)")
+        steps_container = st.container()
+        with steps_container:
+            for item_type, content in st.session_state["simulation_history"]:
+                if item_type == "header":
+                    st.markdown(content)
+                elif item_type == "success":
+                    st.success(content)
+                elif item_type == "warning":
+                    st.warning(content)
+                elif item_type == "error":
+                    st.error(content)
+                elif item_type == "markdown":
+                    st.markdown(content)
+                elif item_type == "dataframe":
+                    st.dataframe(content, use_container_width=True)
+
+# ============================================================
+# BOITE DE DIALOGUE (MODALE) POUR LE BENCHMARK
+# ============================================================
+@st.dialog("Visualiseur d'Instances Benchmark", width="large")
+def show_benchmark_modal():
+    if not st.session_state['bench_data']:
+        st.warning("Aucune donnée à afficher.")
+        if st.button("Fermer"):
+            st.session_state['bench_viewer_active'] = False
+            st.rerun()
+        return
+
+    total = len(st.session_state['bench_data'])
+    idx = st.session_state['current_bench_index']
+    
+    col_nav1, col_nav2, col_nav3, col_close = st.columns([1, 2, 1, 1])
+    
+    with col_nav1:
+        if st.button("⬅️ Précédent", disabled=(idx == 0)):
+            st.session_state['current_bench_index'] -= 1
+            st.rerun()
+
+    with col_nav2:
+        st.markdown(f"<h4 style='text-align: center;'>Instance {idx + 1} / {total}</h4>", unsafe_allow_html=True)
+
+    with col_nav3:
+        if st.button("Suivant ➡️", disabled=(idx == total - 1)):
+            st.session_state['current_bench_index'] += 1
+            st.rerun()
+            
+    with col_close:
+        if st.button("❌ Fermer", type="primary"):
+            st.session_state['bench_viewer_active'] = False
+            st.rerun()
+
+    st.markdown("---")
+    curr_students, curr_schools = st.session_state['bench_data'][idx]
+    
+    col_v1, col_v2 = st.columns(2)
+    with col_v1:
+        st.markdown("#### 👩‍🎓 Préférences Étudiants")
+        df_students = pd.DataFrame([
+            {"Nom": name, "Préférences": " → ".join(prefs)} 
+            for name, prefs in curr_students.items()
+        ])
+        st.dataframe(df_students, use_container_width=True)
+    
+    with col_v2:
+        st.markdown("#### 🏫 Préférences Écoles")
+        df_schools = pd.DataFrame([
+            {"Nom": name, "Préférences": " → ".join(prefs)} 
+            for name, prefs in curr_schools.items()
+        ])
+        st.dataframe(df_schools, use_container_width=True)
+
+
 # ============================================================
 # INTERFACE PRINCIPALE
 # ============================================================
@@ -94,7 +186,7 @@ Ce projet simule pas à pas le processus d'appariement entre étudiants et écol
 """)
 
 # ============================================================
-# BARRE LATÉRALE (SIDEBAR)
+# BARRE LATÉRALE
 # ============================================================
 st.sidebar.header("Paramètres Simulation")
 n_entites = st.sidebar.slider("Nombre d'entités ", 2, 50, 5)
@@ -111,57 +203,8 @@ if st.sidebar.button("📂 Charger instances benchmark"):
         st.session_state['bench_data'] = instances
         st.session_state['bench_viewer_active'] = True
         st.session_state['current_bench_index'] = 0
-        st.sidebar.success(f"{len(instances)} instances chargées !")
     else:
         st.sidebar.warning("Aucune instance trouvée (lancez une simulation d'abord).")
-
-if st.session_state['bench_viewer_active'] and st.session_state['bench_data']:
-    col_nav1, col_nav2, col_nav3 = st.sidebar.columns([1, 1, 1])
-    
-    with col_nav1:
-        if st.button("⬅️"):
-            if st.session_state['current_bench_index'] > 0:
-                st.session_state['current_bench_index'] -= 1
-
-    with col_nav2:
-        st.markdown(f"**{st.session_state['current_bench_index'] + 1} / {len(st.session_state['bench_data'])}**")
-
-    with col_nav3:
-        if st.button("➡️"):
-            if st.session_state['current_bench_index'] < len(st.session_state['bench_data']) - 1:
-                st.session_state['current_bench_index'] += 1
-
-    if st.sidebar.button("❌ Fermer l'affichage"):
-        st.session_state['bench_viewer_active'] = False
-        st.rerun()
-
-
-# ============================================================
-# AFFICHAGE DU VISUALISEUR BENCHMARK (SI ACTIF)
-# ============================================================
-if st.session_state['bench_viewer_active'] and st.session_state['bench_data']:
-    st.markdown("---")
-    st.subheader(f"🔍 Visualiseur d'instance Benchmark n°{st.session_state['current_bench_index'] + 1}")
-    
-    curr_students, curr_schools = st.session_state['bench_data'][st.session_state['current_bench_index']]
-    
-    col_v1, col_v2 = st.columns(2)
-    with col_v1:
-        st.markdown("#### 👩‍🎓 Préférences Étudiants")
-        df_students = pd.DataFrame([
-            {"Nom": name, "Préférences": " → ".join(prefs)} 
-            for name, prefs in curr_students.items()
-        ])
-        st.table(df_students)
-    
-    with col_v2:
-        st.markdown("#### 🏫 Préférences Écoles")
-        df_schools = pd.DataFrame([
-            {"Nom": name, "Préférences": " → ".join(prefs)} 
-            for name, prefs in curr_schools.items()
-        ])
-        st.table(df_schools)
-    st.markdown("---")
 
 
 # ============================================================
@@ -169,11 +212,13 @@ if st.session_state['bench_viewer_active'] and st.session_state['bench_data']:
 # ============================================================
 
 def mariage_stable_animated(pref_student, pref_school, speed=0.5):
-    """Version animée de Gale–Shapley avec affichage Streamlit"""
+    """Exécute l'algo, anime l'UI et enregistre l'historique."""
     steps_container = st.container()
     free_students = list(pref_student.keys())
     proposals = {p: [] for p in pref_student}
     engaged = {s: None for s in pref_school}
+    
+    history = [] # Pour sauvegarder les étapes
 
     step = 1
     while free_students:
@@ -192,15 +237,24 @@ def mariage_stable_animated(pref_student, pref_school, speed=0.5):
         proposals[current_student].append(next_school)
         current_eng = engaged[next_school]
 
+        # Affichage & Enregistrement
+        header_txt = f"### Étape {step}"
+        sub_txt = f"👩‍🎓 **{current_student}** propose à 🏫 **{next_school}**"
+        
         with steps_container:
-            st.markdown(f"### Étape {step}")
-            st.markdown(f"👩‍🎓 **{current_student}** propose à 🏫 **{next_school}**")
+            st.markdown(header_txt)
+            st.markdown(sub_txt)
+        
+        history.append(("header", header_txt))
+        history.append(("markdown", sub_txt))
 
         if current_eng is None:
             engaged[next_school] = current_student
             free_students.pop(0)
+            msg = f"✅ {next_school} accepte temporairement {current_student}"
             with steps_container:
-                st.success(f"✅ {next_school} accepte temporairement {current_student}")
+                st.success(msg)
+            history.append(("success", msg))
         else:
             rank_new = pref_school[next_school].index(current_student)
             rank_old = pref_school[next_school].index(current_eng)
@@ -208,62 +262,75 @@ def mariage_stable_animated(pref_student, pref_school, speed=0.5):
                 engaged[next_school] = current_student
                 free_students.pop(0)
                 free_students.append(current_eng)
+                msg = f"⚖️ {next_school} préfère {current_student} à {current_eng} → {current_eng} redevient libre"
                 with steps_container:
-                    st.warning(f"⚖️ {next_school} préfère {current_student} à {current_eng} → {current_eng} redevient libre")
+                    st.warning(msg)
+                history.append(("warning", msg))
             else:
+                msg = f"❌ {next_school} rejette {current_student} (préférence pour {current_eng})"
                 with steps_container:
-                    st.error(f"❌ {next_school} rejette {current_student} (préférence pour {current_eng})")
+                    st.error(msg)
+                history.append(("error", msg))
 
         with steps_container:
             st.markdown("#### Engagements actuels :")
             df = pd.DataFrame([{"École": e, "Étudiant affecté": engaged[e] or "—"} for e in engaged])
             st.dataframe(df, use_container_width=True)
             st.markdown("---")
+        
+        history.append(("markdown", "#### Engagements actuels :"))
+        history.append(("dataframe", df))
+        history.append(("markdown", "---"))
 
         step += 1
         time.sleep(speed)
 
-    return engaged
+    return engaged, history
+
+
+# ============================================================
+# APPEL DE LA MODALE (Si active)
+# ============================================================
+if st.session_state['bench_viewer_active']:
+    show_benchmark_modal()
 
 
 # ============================================================
 # EXÉCUTION DE LA SIMULATION (CALCUL)
 # ============================================================
 if start_btn:
-    st.empty()  # vide les conteneurs précédents
+    st.empty()
     st.info("Simulation en cours...")
 
     # 1. Génération Instance Unique
     students, schools, prefs_students, prefs_schools = generate_preferences(n_entites, n_entites)
     save_to_csv(students, schools, prefs_students, prefs_schools, "instance_temp.csv")
     
-    # Sauvegarde dans le state pour affichage persistant
     st.session_state["prefs_students"] = prefs_students
     st.session_state["prefs_schools"] = prefs_schools
 
-    # 2. Animation (s'affiche en direct)
+    # 2. Animation (s'affiche en direct + enregistre l'historique)
     st.subheader("Déroulement pas à pas")
-    # On affiche les préférences juste pour l'animation
     col1, col2 = st.columns(2)
     with col1:
         st.dataframe(pd.DataFrame([{"Étudiant": s, "Préférences": " → ".join(prefs_students[s])} for s in prefs_students]))
     with col2:
         st.dataframe(pd.DataFrame([{"École": e, "Préférences": " → ".join(prefs_schools[e])} for e in prefs_schools]))
     
-    engaged = mariage_stable_animated(prefs_students, prefs_schools, speed)
+    engaged, history = mariage_stable_animated(prefs_students, prefs_schools, speed)
+    st.session_state["simulation_history"] = history  # Sauvegarde pour le rechargement
     
-    # 3. Calculs finaux Instance Unique
+    # 3. Calculs finaux
     results = compute_all_measures(prefs_students, prefs_schools, engaged)
     st.session_state["engaged_final"] = engaged
     st.session_state["results"] = results
 
-    # 4. Calculs Benchmark (Graphiques)
-    # Réinitialisation du fichier benchmark pour éviter l'accumulation
+    # 4. Benchmark
     if os.path.exists("instances_bench_temp.csv"):
         try:
             os.remove("instances_bench_temp.csv")
-        except Exception as e:
-            st.warning(f"Attention : Impossible de réinitialiser le fichier benchmark ({e})")
+        except Exception:
+            pass
 
     with st.spinner("Génération des graphiques (Benchmark)..."):
         fig1, fig2, fig3 = test_measures_with_graphs(
@@ -274,38 +341,32 @@ if start_btn:
         st.session_state["figures"] = (fig1, fig2, fig3)
     
     st.success("✅ Simulation terminée !")
-    # On fait un petit rerun pour nettoyer l'affichage de l'animation et afficher le résultat propre
-    # ou on laisse couler vers le bloc d'affichage ci-dessous.
-    # Pour garder l'animation visible juste après le run, on ne fait pas de rerun forcé ici.
 
 
 # ============================================================
 # AFFICHAGE DES RÉSULTATS (PERSISTANT)
 # ============================================================
-# Ce bloc s'exécute si des résultats sont présents en mémoire,
-# même si start_btn est False (ex: après avoir fermé le visualiseur).
-
 if st.session_state["engaged_final"] is not None and st.session_state["results"] is not None:
     
+    # Si on n'est PAS en train de lancer l'animation (c-à-d au rechargement de page)
+    # on réaffiche l'historique pour qu'il ne disparaisse pas.
+    if not start_btn:
+        render_history_log()
+
     engaged_final = st.session_state["engaged_final"]
     results = st.session_state["results"]
     
     st.markdown("---")
     st.subheader("Résultat final du mariage stable")
-    
-    # Affichage des appariements
     st.table(pd.DataFrame([{"École": e, "Étudiant affecté": engaged_final[e]} for e in engaged_final]))
 
     st.markdown("### 📊 Mesures globales de satisfaction")
-
-    # Ligne 1 : performance moyenne
     col1, col2 = st.columns(2)
     with col1:
         st.metric("Rang moyen étudiants", f"{results['avg_rank_students']:.2f}")
     with col2:
         st.metric("Rang moyen écoles", f"{results['avg_rank_schools']:.2f}")
 
-    # Ligne 2 : satisfaction globale
     st.markdown("---")
     col3, col4, col5 = st.columns(3)
     with col3:
@@ -316,9 +377,6 @@ if st.session_state["engaged_final"] is not None and st.session_state["results"]
         pareto_text = "✅ Oui" if results["pareto_optimal"] else "❌ Non"
         st.metric("Pareto-optimalité", pareto_text)
 
-    # ============================================================
-    # VISUALISATION MULTIPLE (GRAPHIQUES STOCKÉS)
-    # ============================================================
     if st.session_state["figures"]:
         st.markdown("---")
         st.subheader("📊 Analyse sur plusieurs instances (tests aléatoires)")
@@ -328,7 +386,6 @@ if st.session_state["engaged_final"] is not None and st.session_state["results"]
         st.pyplot(fig2)
         st.pyplot(fig3)
 
-        # Préparation ZIP pour téléchargement
         zip_buffer = io.BytesIO()
         with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zip_file:
             for i, (fig, name) in enumerate(zip(
@@ -343,9 +400,6 @@ if st.session_state["engaged_final"] is not None and st.session_state["results"]
         st.write("---")
         st.markdown("#### Exporter les résultats")
 
-        # ===============================
-        # CSV des appariements finaux
-        # ===============================
         df_result = pd.DataFrame(
             [{"École": e, "Étudiant affecté": engaged_final[e]} for e in engaged_final]
         )
@@ -359,9 +413,6 @@ if st.session_state["engaged_final"] is not None and st.session_state["results"]
             '📥 Télécharger le résultat final (CSV)</a>'
         )
 
-        # ===============================
-        # CSV des mesures globales
-        # ===============================
         results_df = pd.DataFrame([results])
         csv_measures = results_df.to_csv(index=False).encode("utf-8")
         b64_csv_measures = base64.b64encode(csv_measures).decode()
@@ -373,9 +424,6 @@ if st.session_state["engaged_final"] is not None and st.session_state["results"]
             '📊 Télécharger les mesures globales (CSV)</a>'
         )
 
-        # ===============================
-        # ZIP des graphiques
-        # ===============================
         zip_data = zip_buffer.getvalue()
         b64_zip = base64.b64encode(zip_data).decode()
         href_zip = (

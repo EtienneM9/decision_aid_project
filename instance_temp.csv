@@ -1,12 +1,12 @@
 Type,Nom,Préférences
-Etudiant,Arnaude,Université de Nantes - Université d’Angers - HEC Paris - Université de Valenciennes - Université de Lorraine
-Etudiant,Éric,Université de Valenciennes - HEC Paris - Université d’Angers - Université de Lorraine - Université de Nantes
-Etudiant,Aimé,HEC Paris - Université d’Angers - Université de Lorraine - Université de Nantes - Université de Valenciennes
-Etudiant,Michelle,Université d’Angers - Université de Nantes - Université de Lorraine - HEC Paris - Université de Valenciennes
-Etudiant,Bernadette,Université de Valenciennes - Université de Lorraine - HEC Paris - Université d’Angers - Université de Nantes
+Etudiant,Benjamin,Université de Rennes 1 - Université de Franche-Comté - Sciences Po - CentraleSupélec - Université Clermont Auvergne
+Etudiant,Emmanuelle,Université de Rennes 1 - CentraleSupélec - Université Clermont Auvergne - Sciences Po - Université de Franche-Comté
+Etudiant,Michelle,Université de Rennes 1 - Sciences Po - Université de Franche-Comté - Université Clermont Auvergne - CentraleSupélec
+Etudiant,Madeleine,Université de Rennes 1 - Université Clermont Auvergne - Université de Franche-Comté - Sciences Po - CentraleSupélec
+Etudiant,Richard,Université de Rennes 1 - Université de Franche-Comté - CentraleSupélec - Sciences Po - Université Clermont Auvergne
 
-Ecole,Université d’Angers,Arnaude - Michelle - Bernadette - Aimé - Éric
-Ecole,Université de Lorraine,Aimé - Éric - Michelle - Bernadette - Arnaude
-Ecole,Université de Nantes,Arnaude - Bernadette - Michelle - Éric - Aimé
-Ecole,Université de Valenciennes,Éric - Bernadette - Aimé - Arnaude - Michelle
-Ecole,HEC Paris,Aimé - Bernadette - Arnaude - Michelle - Éric
+Ecole,Université Clermont Auvergne,Richard - Madeleine - Benjamin - Emmanuelle - Michelle
+Ecole,Université de Franche-Comté,Emmanuelle - Michelle - Madeleine - Benjamin - Richard
+Ecole,Sciences Po,Madeleine - Richard - Emmanuelle - Michelle - Benjamin
+Ecole,CentraleSupélec,Madeleine - Richard - Benjamin - Emmanuelle - Michelle
+Ecole,Université de Rennes 1,Madeleine - Benjamin - Michelle - Richard - Emmanuelle
