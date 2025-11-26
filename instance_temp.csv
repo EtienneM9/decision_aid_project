@@ -1,12 +1,12 @@
 Type,Nom,Préférences
-Etudiant,Thibaut,Université Clermont Auvergne - Université du Mans - Université de Franche-Comté - Sorbonne Université - Université de Reims Champagne-Ardenne
-Etudiant,Guy,Université du Mans - Université Clermont Auvergne - Université de Reims Champagne-Ardenne - Sorbonne Université - Université de Franche-Comté
-Etudiant,Astrid,Sorbonne Université - Université Clermont Auvergne - Université de Franche-Comté - Université de Reims Champagne-Ardenne - Université du Mans
-Etudiant,René,Université de Franche-Comté - Université de Reims Champagne-Ardenne - Université du Mans - Sorbonne Université - Université Clermont Auvergne
-Etudiant,Marine,Université de Franche-Comté - Université Clermont Auvergne - Sorbonne Université - Université de Reims Champagne-Ardenne - Université du Mans
+Etudiant,André,Université de Rennes 1 - Télécom Paris - Université de Technologie de Compiègne (UTC) - Université de Pau et des Pays de l’Adour - Université Paris-Saclay
+Etudiant,Guy,Université de Technologie de Compiègne (UTC) - Université de Pau et des Pays de l’Adour - Université Paris-Saclay - Université de Rennes 1 - Télécom Paris
+Etudiant,David,Université de Rennes 1 - Université Paris-Saclay - Télécom Paris - Université de Technologie de Compiègne (UTC) - Université de Pau et des Pays de l’Adour
+Etudiant,Victor,Université de Pau et des Pays de l’Adour - Université Paris-Saclay - Université de Technologie de Compiègne (UTC) - Télécom Paris - Université de Rennes 1
+Etudiant,Stéphane,Université Paris-Saclay - Université de Rennes 1 - Université de Pau et des Pays de l’Adour - Télécom Paris - Université de Technologie de Compiègne (UTC)
 
-Ecole,Université de Reims Champagne-Ardenne,Marine - René - Thibaut - Guy - Astrid
-Ecole,Université du Mans,Thibaut - Guy - Marine - Astrid - René
-Ecole,Université Clermont Auvergne,Thibaut - Marine - Astrid - René - Guy
-Ecole,Université de Franche-Comté,Thibaut - René - Marine - Astrid - Guy
-Ecole,Sorbonne Université,René - Thibaut - Guy - Marine - Astrid
+Ecole,Université de Rennes 1,André - Stéphane - Victor - Guy - David
+Ecole,Télécom Paris,David - Stéphane - Guy - Victor - André
+Ecole,Université Paris-Saclay,Victor - David - André - Stéphane - Guy
+Ecole,Université de Pau et des Pays de l’Adour,Victor - David - André - Guy - Stéphane
+Ecole,Université de Technologie de Compiègne (UTC),André - Stéphane - Guy - Victor - David
