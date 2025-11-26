@@ -1,56 +1,56 @@
 Type,Nom,Préférences
-Etudiant,Agathe,Université de Reims Champagne-Ardenne - Université de Nice - Côte d’Azur - ENSAE Paris - INSA Lyon - Université Paris-Est Créteil (UPEC)
-Etudiant,Diane,Université Paris-Est Créteil (UPEC) - Université de Nice - Côte d’Azur - ENSAE Paris - INSA Lyon - Université de Reims Champagne-Ardenne
-Etudiant,Alice,ENSAE Paris - Université de Reims Champagne-Ardenne - Université de Nice - Côte d’Azur - Université Paris-Est Créteil (UPEC) - INSA Lyon
-Etudiant,Sophie,ENSAE Paris - INSA Lyon - Université Paris-Est Créteil (UPEC) - Université de Nice - Côte d’Azur - Université de Reims Champagne-Ardenne
-Etudiant,Alain,Université de Nice - Côte d’Azur - INSA Lyon - Université Paris-Est Créteil (UPEC) - ENSAE Paris - Université de Reims Champagne-Ardenne
-Ecole,Université de Reims Champagne-Ardenne,Sophie - Alice - Diane - Alain - Agathe
-Ecole,Université Paris-Est Créteil (UPEC),Sophie - Agathe - Diane - Alice - Alain
-Ecole,Université de Nice - Côte d’Azur,Alain - Sophie - Diane - Alice - Agathe
-Ecole,INSA Lyon,Agathe - Diane - Sophie - Alice - Alain
-Ecole,ENSAE Paris,Sophie - Diane - Agathe - Alain - Alice
+Etudiant,Lucie,Université de Technologie de Belfort-Montbéliard (UTBM) - Université Paris 1 Panthéon-Sorbonne - Université de Rouen Normandie - Université Savoie Mont Blanc - Université Paris 8 Vincennes-Saint-Denis
+Etudiant,Brigitte,Université Savoie Mont Blanc - Université de Technologie de Belfort-Montbéliard (UTBM) - Université Paris 1 Panthéon-Sorbonne - Université Paris 8 Vincennes-Saint-Denis - Université de Rouen Normandie
+Etudiant,Margot,Université Paris 8 Vincennes-Saint-Denis - Université de Technologie de Belfort-Montbéliard (UTBM) - Université Paris 1 Panthéon-Sorbonne - Université Savoie Mont Blanc - Université de Rouen Normandie
+Etudiant,Éléonore,Université Paris 8 Vincennes-Saint-Denis - Université de Technologie de Belfort-Montbéliard (UTBM) - Université de Rouen Normandie - Université Savoie Mont Blanc - Université Paris 1 Panthéon-Sorbonne
+Etudiant,Noël,Université Savoie Mont Blanc - Université Paris 1 Panthéon-Sorbonne - Université de Rouen Normandie - Université de Technologie de Belfort-Montbéliard (UTBM) - Université Paris 8 Vincennes-Saint-Denis
+Ecole,Université de Technologie de Belfort-Montbéliard (UTBM),Brigitte - Éléonore - Margot - Lucie - Noël
+Ecole,Université Savoie Mont Blanc,Éléonore - Brigitte - Noël - Lucie - Margot
+Ecole,Université Paris 1 Panthéon-Sorbonne,Lucie - Brigitte - Éléonore - Noël - Margot
+Ecole,Université de Rouen Normandie,Brigitte - Margot - Éléonore - Lucie - Noël
+Ecole,Université Paris 8 Vincennes-Saint-Denis,Éléonore - Brigitte - Lucie - Margot - Noël
 
-Etudiant,Diane,Université Paris 1 Panthéon-Sorbonne - Université d’Évry-Val-d’Essonne - Université de La Réunion - Université de Franche-Comté - Université de Lorraine
-Etudiant,Valérie,Université d’Évry-Val-d’Essonne - Université de La Réunion - Université de Franche-Comté - Université de Lorraine - Université Paris 1 Panthéon-Sorbonne
-Etudiant,Timothée,Université d’Évry-Val-d’Essonne - Université de La Réunion - Université de Franche-Comté - Université Paris 1 Panthéon-Sorbonne - Université de Lorraine
-Etudiant,Christine,Université d’Évry-Val-d’Essonne - Université de Lorraine - Université de La Réunion - Université Paris 1 Panthéon-Sorbonne - Université de Franche-Comté
-Etudiant,Pierre,Université d’Évry-Val-d’Essonne - Université de La Réunion - Université de Lorraine - Université Paris 1 Panthéon-Sorbonne - Université de Franche-Comté
-Ecole,Université de Lorraine,Timothée - Diane - Pierre - Valérie - Christine
-Ecole,Université d’Évry-Val-d’Essonne,Christine - Pierre - Diane - Timothée - Valérie
-Ecole,Université de La Réunion,Timothée - Valérie - Diane - Pierre - Christine
-Ecole,Université Paris 1 Panthéon-Sorbonne,Valérie - Diane - Pierre - Timothée - Christine
-Ecole,Université de Franche-Comté,Diane - Timothée - Valérie - Pierre - Christine
+Etudiant,Susan,Université de Poitiers - Université de Technologie de Troyes (UTT) - Université de Strasbourg - Sciences Po - Université de Pau et des Pays de l’Adour
+Etudiant,Virginie,Université de Poitiers - Sciences Po - Université de Pau et des Pays de l’Adour - Université de Strasbourg - Université de Technologie de Troyes (UTT)
+Etudiant,Élisabeth,Université de Strasbourg - Université de Technologie de Troyes (UTT) - Université de Pau et des Pays de l’Adour - Université de Poitiers - Sciences Po
+Etudiant,Jeanne,Université de Strasbourg - Université de Technologie de Troyes (UTT) - Université de Pau et des Pays de l’Adour - Sciences Po - Université de Poitiers
+Etudiant,Adrienne,Université de Pau et des Pays de l’Adour - Université de Technologie de Troyes (UTT) - Université de Poitiers - Sciences Po - Université de Strasbourg
+Ecole,Université de Strasbourg,Susan - Adrienne - Élisabeth - Jeanne - Virginie
+Ecole,Université de Pau et des Pays de l’Adour,Adrienne - Virginie - Élisabeth - Susan - Jeanne
+Ecole,Sciences Po,Jeanne - Virginie - Susan - Adrienne - Élisabeth
+Ecole,Université de Poitiers,Élisabeth - Jeanne - Susan - Adrienne - Virginie
+Ecole,Université de Technologie de Troyes (UTT),Jeanne - Adrienne - Élisabeth - Virginie - Susan
 
-Etudiant,Emmanuelle,ENS Lyon - Sciences Po - Université de Rouen Normandie - Université Paris-Saclay - Université Paris Cité
-Etudiant,Caroline,Sciences Po - ENS Lyon - Université Paris-Saclay - Université Paris Cité - Université de Rouen Normandie
-Etudiant,Marie,Université Paris-Saclay - ENS Lyon - Université de Rouen Normandie - Université Paris Cité - Sciences Po
-Etudiant,Adrienne,Sciences Po - Université Paris-Saclay - ENS Lyon - Université de Rouen Normandie - Université Paris Cité
-Etudiant,Stéphane,Université Paris Cité - Sciences Po - Université Paris-Saclay - Université de Rouen Normandie - ENS Lyon
-Ecole,Université Paris Cité,Marie - Adrienne - Stéphane - Emmanuelle - Caroline
-Ecole,Université Paris-Saclay,Adrienne - Emmanuelle - Stéphane - Marie - Caroline
-Ecole,ENS Lyon,Stéphane - Adrienne - Emmanuelle - Caroline - Marie
-Ecole,Université de Rouen Normandie,Emmanuelle - Caroline - Marie - Adrienne - Stéphane
-Ecole,Sciences Po,Adrienne - Caroline - Emmanuelle - Stéphane - Marie
+Etudiant,Margaud,Mines ParisTech - Université Clermont Auvergne - Université Paris-Est Créteil (UPEC) - Université de Caen Normandie - École Polytechnique
+Etudiant,Marc,Université Paris-Est Créteil (UPEC) - Université Clermont Auvergne - Mines ParisTech - École Polytechnique - Université de Caen Normandie
+Etudiant,Claude,Université Clermont Auvergne - Université Paris-Est Créteil (UPEC) - École Polytechnique - Université de Caen Normandie - Mines ParisTech
+Etudiant,Cécile,Université de Caen Normandie - Mines ParisTech - Université Paris-Est Créteil (UPEC) - École Polytechnique - Université Clermont Auvergne
+Etudiant,Renée,Université Paris-Est Créteil (UPEC) - Université Clermont Auvergne - École Polytechnique - Université de Caen Normandie - Mines ParisTech
+Ecole,Mines ParisTech,Margaud - Renée - Marc - Cécile - Claude
+Ecole,Université Clermont Auvergne,Cécile - Renée - Marc - Margaud - Claude
+Ecole,Université de Caen Normandie,Cécile - Margaud - Claude - Marc - Renée
+Ecole,École Polytechnique,Marc - Claude - Margaud - Renée - Cécile
+Ecole,Université Paris-Est Créteil (UPEC),Margaud - Marc - Renée - Claude - Cécile
 
-Etudiant,Antoine,Université de Tours - Université de Montpellier - École Polytechnique - Université Toulouse III - Paul Sabatier - Université Paris 1 Panthéon-Sorbonne
-Etudiant,Alix,Université Paris 1 Panthéon-Sorbonne - Université Toulouse III - Paul Sabatier - École Polytechnique - Université de Tours - Université de Montpellier
-Etudiant,David,Université Toulouse III - Paul Sabatier - Université Paris 1 Panthéon-Sorbonne - École Polytechnique - Université de Tours - Université de Montpellier
-Etudiant,Élise,Université de Tours - Université de Montpellier - Université Paris 1 Panthéon-Sorbonne - Université Toulouse III - Paul Sabatier - École Polytechnique
-Etudiant,Éric,Université Paris 1 Panthéon-Sorbonne - Université de Montpellier - Université Toulouse III - Paul Sabatier - École Polytechnique - Université de Tours
-Ecole,Université Paris 1 Panthéon-Sorbonne,Éric - David - Élise - Alix - Antoine
-Ecole,École Polytechnique,Élise - Éric - Alix - Antoine - David
-Ecole,Université de Tours,Éric - Élise - Alix - Antoine - David
-Ecole,Université de Montpellier,Élise - David - Antoine - Éric - Alix
-Ecole,Université Toulouse III - Paul Sabatier,Éric - Antoine - David - Élise - Alix
+Etudiant,Émile,Université d’Angers - Université de Perpignan Via Domitia - Sorbonne Université - Université de Rennes 1 - Université Paris Nanterre
+Etudiant,Matthieu,Université d’Angers - Université de Perpignan Via Domitia - Sorbonne Université - Université Paris Nanterre - Université de Rennes 1
+Etudiant,Alain,Université d’Angers - Université de Perpignan Via Domitia - Sorbonne Université - Université Paris Nanterre - Université de Rennes 1
+Etudiant,Margaret,Université d’Angers - Sorbonne Université - Université Paris Nanterre - Université de Rennes 1 - Université de Perpignan Via Domitia
+Etudiant,Paulette,Université de Perpignan Via Domitia - Université d’Angers - Université Paris Nanterre - Université de Rennes 1 - Sorbonne Université
+Ecole,Université d’Angers,Paulette - Alain - Margaret - Matthieu - Émile
+Ecole,Université Paris Nanterre,Margaret - Paulette - Alain - Matthieu - Émile
+Ecole,Sorbonne Université,Paulette - Margaret - Émile - Matthieu - Alain
+Ecole,Université de Rennes 1,Alain - Matthieu - Émile - Margaret - Paulette
+Ecole,Université de Perpignan Via Domitia,Émile - Paulette - Alain - Margaret - Matthieu
 
-Etudiant,Christelle,Université de Caen Normandie - Université de Pau et des Pays de l’Adour - Université de Poitiers - Université Savoie Mont Blanc - Université de Bordeaux
-Etudiant,Arnaude,Université de Pau et des Pays de l’Adour - Université de Poitiers - Université Savoie Mont Blanc - Université de Bordeaux - Université de Caen Normandie
-Etudiant,Camille,Université Savoie Mont Blanc - Université de Pau et des Pays de l’Adour - Université de Bordeaux - Université de Poitiers - Université de Caen Normandie
-Etudiant,Lucie,Université Savoie Mont Blanc - Université de Caen Normandie - Université de Poitiers - Université de Bordeaux - Université de Pau et des Pays de l’Adour
-Etudiant,Pierre,Université de Pau et des Pays de l’Adour - Université de Caen Normandie - Université de Bordeaux - Université de Poitiers - Université Savoie Mont Blanc
-Ecole,Université Savoie Mont Blanc,Lucie - Camille - Arnaude - Christelle - Pierre
-Ecole,Université de Poitiers,Camille - Pierre - Christelle - Lucie - Arnaude
-Ecole,Université de Caen Normandie,Camille - Christelle - Pierre - Lucie - Arnaude
-Ecole,Université de Bordeaux,Camille - Arnaude - Lucie - Pierre - Christelle
-Ecole,Université de Pau et des Pays de l’Adour,Pierre - Arnaude - Camille - Christelle - Lucie
+Etudiant,Tristan,Université de Montpellier - Université de Perpignan Via Domitia - ENSAE Paris - Université de Lorraine - INSA Lyon
+Etudiant,Denis,INSA Lyon - Université de Lorraine - ENSAE Paris - Université de Perpignan Via Domitia - Université de Montpellier
+Etudiant,Joséphine,Université de Lorraine - INSA Lyon - Université de Montpellier - ENSAE Paris - Université de Perpignan Via Domitia
+Etudiant,Théodore,Université de Montpellier - Université de Lorraine - Université de Perpignan Via Domitia - INSA Lyon - ENSAE Paris
+Etudiant,Capucine,Université de Perpignan Via Domitia - ENSAE Paris - Université de Montpellier - Université de Lorraine - INSA Lyon
+Ecole,Université de Lorraine,Capucine - Joséphine - Théodore - Denis - Tristan
+Ecole,INSA Lyon,Tristan - Capucine - Joséphine - Denis - Théodore
+Ecole,Université de Montpellier,Denis - Capucine - Théodore - Joséphine - Tristan
+Ecole,Université de Perpignan Via Domitia,Tristan - Joséphine - Denis - Capucine - Théodore
+Ecole,ENSAE Paris,Tristan - Denis - Capucine - Théodore - Joséphine
 

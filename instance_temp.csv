@@ -1,12 +1,12 @@
 Type,Nom,Préférences
-Etudiant,Benjamin,Université de Rennes 1 - Université de Franche-Comté - Sciences Po - CentraleSupélec - Université Clermont Auvergne
-Etudiant,Emmanuelle,Université de Rennes 1 - CentraleSupélec - Université Clermont Auvergne - Sciences Po - Université de Franche-Comté
-Etudiant,Michelle,Université de Rennes 1 - Sciences Po - Université de Franche-Comté - Université Clermont Auvergne - CentraleSupélec
-Etudiant,Madeleine,Université de Rennes 1 - Université Clermont Auvergne - Université de Franche-Comté - Sciences Po - CentraleSupélec
-Etudiant,Richard,Université de Rennes 1 - Université de Franche-Comté - CentraleSupélec - Sciences Po - Université Clermont Auvergne
+Etudiant,Daniel,Université de Rennes 1 - ESSEC Business School - Université Paris 1 Panthéon-Sorbonne - Université de Strasbourg - Université d’Angers
+Etudiant,Émilie,ESSEC Business School - Université de Strasbourg - Université d’Angers - Université Paris 1 Panthéon-Sorbonne - Université de Rennes 1
+Etudiant,Hugues,Université de Rennes 1 - Université Paris 1 Panthéon-Sorbonne - Université d’Angers - Université de Strasbourg - ESSEC Business School
+Etudiant,Suzanne,Université de Rennes 1 - ESSEC Business School - Université d’Angers - Université Paris 1 Panthéon-Sorbonne - Université de Strasbourg
+Etudiant,Thibaut,Université Paris 1 Panthéon-Sorbonne - Université d’Angers - Université de Strasbourg - ESSEC Business School - Université de Rennes 1
 
-Ecole,Université Clermont Auvergne,Richard - Madeleine - Benjamin - Emmanuelle - Michelle
-Ecole,Université de Franche-Comté,Emmanuelle - Michelle - Madeleine - Benjamin - Richard
-Ecole,Sciences Po,Madeleine - Richard - Emmanuelle - Michelle - Benjamin
-Ecole,CentraleSupélec,Madeleine - Richard - Benjamin - Emmanuelle - Michelle
-Ecole,Université de Rennes 1,Madeleine - Benjamin - Michelle - Richard - Emmanuelle
+Ecole,ESSEC Business School,Suzanne - Thibaut - Hugues - Émilie - Daniel
+Ecole,Université Paris 1 Panthéon-Sorbonne,Émilie - Daniel - Hugues - Suzanne - Thibaut
+Ecole,Université de Strasbourg,Hugues - Émilie - Suzanne - Daniel - Thibaut
+Ecole,Université de Rennes 1,Émilie - Daniel - Thibaut - Suzanne - Hugues
+Ecole,Université d’Angers,Émilie - Daniel - Thibaut - Hugues - Suzanne
